@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
   resources :comments
   resources :posts
-  resources :groups
+  
+  resources :groups do
+    collection do
+      post :filter
+    end
+  end
 
   devise_scope :user do
     authenticated :user do
@@ -13,4 +18,5 @@ Rails.application.routes.draw do
     end
   end
 
+  get "/auth/google_oauth2/callback", to: "omniauth_callbacks#google"
 end

@@ -1,6 +1,26 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: %i[ show edit update destroy ]
 
+  def filter
+    if params[:filter] == "all"
+      @groups = Group.all
+    elsif params[:filter] == "mine"
+      @groups = Group.where(user_id: current_user.id)
+    elsif params[:filter] == "joined"
+      @groups = []
+    else
+      @groups = []
+    end
+
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: [
+          turbo_stream.update("groups", partial: "groups/filter_results", locals: {groups: @groups} )
+        ]
+      end
+    end
+  end
+
   # GET /groups or /groups.json
   def index
     @groups = Group.all
