@@ -205,3 +205,232 @@ Migrating to AddPostIdToComments (20230128025745)
   [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(8183932473577995435)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/groups" for ::1 at 2023-01-28 11:01:38 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.8ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:12
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 19)
+  Rendered groups/index.html.erb within layouts/application (Duration: 6.9ms | Allocations: 3031)
+  Rendered layout layouts/application.html.erb (Duration: 30.2ms | Allocations: 23975)
+Completed 200 OK in 43ms (Views: 32.1ms | ActiveRecord: 0.8ms | Allocations: 27066)
+
+
+Started GET "/groups/new" for ::1 at 2023-01-28 11:01:39 +0800
+Processing by GroupsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/new.html.erb within layouts/application
+  Rendered groups/_form.html.erb (Duration: 24.0ms | Allocations: 5787)
+  Rendered groups/new.html.erb within layouts/application (Duration: 35.4ms | Allocations: 6129)
+  Rendered layout layouts/application.html.erb (Duration: 44.3ms | Allocations: 12833)
+Completed 200 OK in 66ms (Views: 45.1ms | ActiveRecord: 4.3ms | Allocations: 16578)
+
+
+Started POST "/groups" for ::1 at 2023-01-28 11:01:53 +0800
+Processing by GroupsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "group"=>{"name"=>"Calvin's Teaching Group"}, "commit"=>"Create Group"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/groups_controller.rb:27:in `block in create'
+  [1m[36mGroup Create (0.9ms)[0m  [1m[32mINSERT INTO "groups" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Calvin's Teaching Group"], ["created_at", "2023-01-28 03:01:53.082032"], ["updated_at", "2023-01-28 03:01:53.082032"]]
+  ↳ app/controllers/groups_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/groups_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/groups/1
+Completed 302 Found in 14ms (ActiveRecord: 3.1ms | Allocations: 5607)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-28 11:01:53 +0800
+Processing by GroupsController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.6ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:63:in `set_group'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/_group.html.erb (Duration: 1.4ms | Allocations: 291)
+  Rendered groups/show.html.erb within layouts/application (Duration: 10.6ms | Allocations: 3343)
+  Rendered layout layouts/application.html.erb (Duration: 21.1ms | Allocations: 10032)
+Completed 200 OK in 27ms (Views: 21.8ms | ActiveRecord: 0.9ms | Allocations: 12881)
+
+
+Started GET "/groups" for ::1 at 2023-01-28 11:01:54 +0800
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:12
+  Rendered collection of groups/_group.html.erb [1 times] (Duration: 1.5ms | Allocations: 347)
+  Rendered groups/index.html.erb within layouts/application (Duration: 5.5ms | Allocations: 3037)
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 9628)
+Completed 200 OK in 15ms (Views: 14.4ms | ActiveRecord: 0.4ms | Allocations: 9940)
+
+
+Started GET "/groups/new" for ::1 at 2023-01-28 11:01:55 +0800
+Processing by GroupsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/new.html.erb within layouts/application
+  Rendered groups/_form.html.erb (Duration: 2.2ms | Allocations: 2485)
+  Rendered groups/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 2584)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 9277)
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.0ms | Allocations: 9553)
+
+
+Started POST "/groups" for ::1 at 2023-01-28 11:02:01 +0800
+Processing by GroupsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "group"=>{"name"=>"My group"}, "commit"=>"Create Group"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/groups_controller.rb:27:in `block in create'
+  [1m[36mGroup Create (0.4ms)[0m  [1m[32mINSERT INTO "groups" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "My group"], ["created_at", "2023-01-28 03:02:01.261294"], ["updated_at", "2023-01-28 03:02:01.261294"]]
+  ↳ app/controllers/groups_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/groups_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/groups/2
+Completed 302 Found in 11ms (ActiveRecord: 2.8ms | Allocations: 4057)
+
+
+Started GET "/groups/2" for ::1 at 2023-01-28 11:02:01 +0800
+Processing by GroupsController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:63:in `set_group'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered groups/show.html.erb within layouts/application (Duration: 2.0ms | Allocations: 2258)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 8960)
+Completed 200 OK in 13ms (Views: 10.2ms | ActiveRecord: 0.4ms | Allocations: 9731)
+
+
+Started GET "/groups" for ::1 at 2023-01-28 11:02:02 +0800
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:12
+  Rendered collection of groups/_group.html.erb [2 times] (Duration: 0.3ms | Allocations: 219)
+  Rendered groups/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 2775)
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 9366)
+Completed 200 OK in 11ms (Views: 10.6ms | ActiveRecord: 0.4ms | Allocations: 9636)
+
+
+Started GET "/groups/new" for ::1 at 2023-01-28 11:02:03 +0800
+Processing by GroupsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/new.html.erb within layouts/application
+  Rendered groups/_form.html.erb (Duration: 1.9ms | Allocations: 2416)
+  Rendered groups/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 2514)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 9215)
+Completed 200 OK in 10ms (Views: 10.1ms | ActiveRecord: 0.0ms | Allocations: 9487)
+
+
+Started POST "/groups" for ::1 at 2023-01-28 11:02:12 +0800
+Processing by GroupsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "group"=>{"name"=>"Welcome to Simplero!"}, "commit"=>"Create Group"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/groups_controller.rb:27:in `block in create'
+  [1m[36mGroup Create (0.5ms)[0m  [1m[32mINSERT INTO "groups" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Welcome to Simplero!"], ["created_at", "2023-01-28 03:02:12.809845"], ["updated_at", "2023-01-28 03:02:12.809845"]]
+  ↳ app/controllers/groups_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/groups_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/groups/3
+Completed 302 Found in 9ms (ActiveRecord: 3.0ms | Allocations: 3943)
+
+
+Started GET "/groups/3" for ::1 at 2023-01-28 11:02:12 +0800
+Processing by GroupsController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:63:in `set_group'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered groups/show.html.erb within layouts/application (Duration: 2.4ms | Allocations: 2242)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 8834)
+Completed 200 OK in 13ms (Views: 10.1ms | ActiveRecord: 0.4ms | Allocations: 9591)
+
+
+Started GET "/groups" for ::1 at 2023-01-28 11:02:13 +0800
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:12
+  Rendered collection of groups/_group.html.erb [3 times] (Duration: 0.5ms | Allocations: 322)
+  Rendered groups/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2870)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 9460)
+Completed 200 OK in 12ms (Views: 11.6ms | ActiveRecord: 0.5ms | Allocations: 9730)
+
+
+Started GET "/groups" for ::1 at 2023-01-28 11:07:07 +0800
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:15
+  Rendered collection of groups/_group.html.erb [3 times] (Duration: 1.0ms | Allocations: 438)
+  Rendered groups/index.html.erb within layouts/application (Duration: 6.6ms | Allocations: 4198)
+  Rendered layout layouts/application.html.erb (Duration: 15.1ms | Allocations: 11198)
+Completed 200 OK in 18ms (Views: 16.8ms | ActiveRecord: 0.5ms | Allocations: 12050)
+
+
+Started GET "/groups" for ::1 at 2023-01-28 11:07:08 +0800
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:15
+  Rendered collection of groups/_group.html.erb [3 times] (Duration: 0.3ms | Allocations: 199)
+  Rendered groups/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 2812)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 9401)
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.5ms | Allocations: 9694)
+
+
+Started GET "/groups" for ::1 at 2023-01-28 11:07:54 +0800
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:17
+  Rendered collection of groups/_group.html.erb [3 times] (Duration: 1.2ms | Allocations: 436)
+  Rendered groups/index.html.erb within layouts/application (Duration: 7.3ms | Allocations: 3790)
+  Rendered layout layouts/application.html.erb (Duration: 19.6ms | Allocations: 10906)
+Completed 200 OK in 23ms (Views: 21.4ms | ActiveRecord: 0.4ms | Allocations: 11759)
+
+
+Started GET "/groups" for ::1 at 2023-01-28 11:07:56 +0800
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:17
+  Rendered collection of groups/_group.html.erb [3 times] (Duration: 0.3ms | Allocations: 199)
+  Rendered groups/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 2971)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 9589)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.5ms | Allocations: 9883)
+
+
+Started GET "/groups" for ::1 at 2023-01-28 11:09:23 +0800
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:17
+  Rendered collection of groups/_group.html.erb [3 times] (Duration: 1.0ms | Allocations: 436)
+  Rendered groups/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 3808)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 10908)
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 0.4ms | Allocations: 11760)
+
+
+Started GET "/groups" for ::1 at 2023-01-28 11:10:34 +0800
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:17
+  Rendered collection of groups/_group.html.erb [3 times] (Duration: 0.9ms | Allocations: 440)
+  Rendered groups/index.html.erb within layouts/application (Duration: 5.5ms | Allocations: 3791)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 10899)
+Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 0.2ms | Allocations: 11774)
+
+
