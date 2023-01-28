@@ -10,8 +10,8 @@
       <h2>Comments</h2>
     </div>
 
-    <%= render "comments" %>
-
+    <%# List of Related comments %>
+      <%= render "comments" %>
 
     <%= form_with(model: Comment.new()) do |form| %>
 
