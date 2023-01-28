@@ -12,8 +12,19 @@
     <div class="border-2 border-gray-600 flex px-4 py-2 w-fit rounded-lg gap-2">
       <%= render(FilterComponent.new()) %>
     </div>
-    
-    <%= link_to 'New group', new_group_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+
+    <div data-controller="modal">
+      <button data-action="click->modal#toggle" class="rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium">
+        New Group
+      </button>
+
+      <%# Modal %>
+      <div data-modal-target="modalArea" hidden>
+        <%= render(ModalComponent.new('Create', current_user.id )) %>
+      </div>
+
+      <%# link_to 'New group', new_group_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    </div>
   </div>
 
   <%# Group detail %>
