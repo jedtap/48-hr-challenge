@@ -8,11 +8,14 @@
     <%= link_to 'New group', new_group_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
-  <%= link_to "All groups" %>
-  <%= link_to "Created by me" %>
-  <%= link_to "Where I am member" %>
+  <br/>
 
+  <%# Filters for the group %>
+  <div class="border-2 border-gray-600 flex px-4 py-2 w-fit rounded-lg gap-2">
+    <%= render(FilterComponent.new()) %>
+  </div>
 
+  <%# Group detail %>
   <div id="groups" class="min-w-full">
     <%= render @groups %>
   </div>
