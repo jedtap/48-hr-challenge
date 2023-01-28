@@ -22,26 +22,24 @@
 
 
   <%# New Post %>
-  <%= turbo_frame_tag "new_post" do%>
-  
-    <div>
-      <%= form_with(url: new_post_path, class: "contents") do |form| %>
+  <div>
+    <%= form_with(model: Post.new()) do |form| %>
 
       <div class="my-5">
-        <%= form.label :title %>
-        <%= form.text_field :title, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+        <%= form.text_field :title, placeholder: "What's the title of this post?", class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
       </div>
 
       <div class="my-5">
-        <%= form.label :content %>
-        <%= form.text_area :content, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+        <%= form.text_area :content, rows: 4, placeholder: "Write your post...", class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
       </div>
 
-      <div class="inline">
+        <%= form.number_field :user_id, value: current_user.id, type: :hidden %>
+        <%= form.number_field :group_id, value: @group.id, type: :hidden %>
+
+      <div class="flex justify-end">
         <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
       </div>
-    </div>
-  <% end %> 
+  </div>
 
   <%# View all posts %>
   <div>View all posts</div>
