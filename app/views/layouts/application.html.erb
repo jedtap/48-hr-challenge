@@ -12,7 +12,14 @@
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <%# Navbar %>
+    <% if user_signed_in? %>
+      <div class="flex justify-end px-20 pt-10 gap-10">
+        <%= render(NavbarComponent.new()) %>
+      </div>
+    <% end %>
+
+    <main class="container mx-auto mt-28 px-5 flex flex-col">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       <%= yield %>
