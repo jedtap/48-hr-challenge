@@ -7,7 +7,10 @@ class GroupsController < ApplicationController
     elsif params[:filter] == "mine"
       @groups = Group.where(user_id: current_user.id)
     elsif params[:filter] == "joined"
-      @groups = []
+      query = Membership.where(user_id: current_user.id)
+      list = []
+      query.each { |q| list.push(q.group_id) }
+      @groups = Group.where(id: list)
     else
       @groups = []
     end

@@ -11,4 +11,8 @@
 <% end %>
 
 <p> | </p>
-<%= link_to "Where I am member" %>
+
+<%= form_with url: filter_groups_path, method: :post do |form|  %>
+    <%= form.text_field :filter, value: "joined", type: :hidden %>
+    <%= form.submit "Where I am member" %>
+<% end %>
