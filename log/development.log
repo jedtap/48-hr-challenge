@@ -434,3 +434,541 @@ Processing by GroupsController#index as HTML
 Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 0.2ms | Allocations: 11774)
 
 
+Started GET "/groups" for ::1 at 2023-01-28 11:12:10 +0800
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:17
+  Rendered collection of groups/_group.html.erb [3 times] (Duration: 0.5ms | Allocations: 199)
+  Rendered groups/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 2975)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 9575)
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.5ms | Allocations: 9867)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-28 11:12:17 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.7ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:63:in `set_group'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/_group.html.erb (Duration: 1.1ms | Allocations: 228)
+  Rendered groups/show.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2698)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 9279)
+Completed 200 OK in 22ms (Views: 12.2ms | ActiveRecord: 0.7ms | Allocations: 10135)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-28 11:13:29 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:63:in `set_group'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered groups/show.html.erb within layouts/application (Duration: 3.1ms | Allocations: 2236)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 8818)
+Completed 200 OK in 19ms (Views: 14.9ms | ActiveRecord: 0.3ms | Allocations: 9570)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-28 11:14:20 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:63:in `set_group'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/show.html.erb within layouts/application (Duration: 7.1ms | Allocations: 6877)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 6965)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.2ms | Allocations: 8298)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `group' for #<ActionView::Base:0x000000000148c0>
+
+    '.freeze;@output_buffer.append=( group.name );@output_buffer.safe_append='
+                                     ^^^^^
+Did you mean?  @group):
+    4:       <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    5:     <% end %>
+    6: 
+    7:     <%= group.name %>
+    8: 
+    9:     <%= link_to 'Edit this group', edit_group_path(@group), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+   10:     <div class="inline-block ml-2">
+  
+app/views/groups/show.html.erb:7
+Started GET "/groups/1" for ::1 at 2023-01-28 11:14:38 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:63:in `set_group'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/show.html.erb within layouts/application (Duration: 3.2ms | Allocations: 2564)
+  Rendered layout layouts/application.html.erb (Duration: 19.6ms | Allocations: 9663)
+Completed 200 OK in 27ms (Views: 23.6ms | ActiveRecord: 0.5ms | Allocations: 11088)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-28 11:15:05 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:63:in `set_group'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/show.html.erb within layouts/application (Duration: 3.0ms | Allocations: 2267)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 9260)
+Completed 200 OK in 26ms (Views: 14.4ms | ActiveRecord: 0.4ms | Allocations: 10691)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-28 11:15:19 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:63:in `set_group'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 2245)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 9238)
+Completed 200 OK in 17ms (Views: 14.5ms | ActiveRecord: 0.2ms | Allocations: 10669)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-28 11:17:11 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (2.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:63:in `set_group'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 5.3ms | Allocations: 5169)
+  Rendered groups/show.html.erb within layouts/application (Duration: 8.0ms | Allocations: 7569)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 7654)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 2.2ms | Allocations: 9055)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `post' for #<ActionView::Base:0x00000000014dc0>
+
+            @virtual_path = "posts/_form";;@output_buffer.append=  form_with(model: post, class: "contents") do |form| @output_buffer.safe_append='
+                                                                                    ^^^^):
+    1: <%= form_with(model: post, class: "contents") do |form| %>
+    2:   <% if post.errors.any? %>
+    3:     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+    4:       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+  
+app/views/posts/_form.html.erb:1
+app/views/groups/show.html.erb:16
+Started GET "/groups/1" for ::1 at 2023-01-28 11:17:52 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:63:in `set_group'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 2.4ms | Allocations: 2358)
+  Rendered groups/show.html.erb within layouts/application (Duration: 4.9ms | Allocations: 4756)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 4841)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.5ms | Allocations: 6236)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass
+
+'.freeze;   if post.errors.any? 
+                   ^^^^^^^):
+    1: <%= form_with(model: post, class: "contents") do |form| %>
+    2:   <% if post.errors.any? %>
+    3:     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+    4:       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+    5: 
+  
+app/views/posts/_form.html.erb:2
+app/views/posts/_form.html.erb:1
+app/views/groups/show.html.erb:16
+Started GET "/groups/1" for ::1 at 2023-01-28 11:18:05 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:63:in `set_group'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 3.0ms | Allocations: 2673)
+  Rendered groups/show.html.erb within layouts/application (Duration: 9.1ms | Allocations: 5678)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 5774)
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 4.6ms | Allocations: 16964)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass
+
+'.freeze;   if post.errors.any? 
+                   ^^^^^^^):
+    1: <%= form_with(model: post, class: "contents") do |form| %>
+    2:   <% if post.errors.any? %>
+    3:     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+    4:       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+    5: 
+  
+app/views/posts/_form.html.erb:2
+app/views/posts/_form.html.erb:1
+app/views/groups/show.html.erb:16
+Started GET "/groups/1" for ::1 at 2023-01-28 11:18:57 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:63:in `set_group'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 5.6ms | Allocations: 5211)
+  Rendered groups/show.html.erb within layouts/application (Duration: 8.1ms | Allocations: 7607)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 7693)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.4ms | Allocations: 9121)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `post' for #<ActionView::Base:0x0000000000c580>
+
+            @virtual_path = "posts/_form";;@output_buffer.append=  form_with(model: post, class: "contents") do |form| @output_buffer.safe_append='
+                                                                                    ^^^^):
+    1: <%= form_with(model: post, class: "contents") do |form| %>
+    2:   <% if post.errors.any? %>
+    3:     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+    4:       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+  
+app/views/posts/_form.html.erb:1
+app/views/groups/show.html.erb:16
+Started GET "/groups/1" for ::1 at 2023-01-28 11:19:14 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:63:in `set_group'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 2.1ms | Allocations: 2328)
+  Rendered groups/show.html.erb within layouts/application (Duration: 4.6ms | Allocations: 4725)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 4811)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.5ms | Allocations: 6227)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass
+
+'.freeze;   if post.errors.any? 
+                   ^^^^^^^):
+    1: <%= form_with(model: post, class: "contents") do |form| %>
+    2:   <% if post.errors.any? %>
+    3:     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+    4:       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+    5: 
+  
+app/views/posts/_form.html.erb:2
+app/views/posts/_form.html.erb:1
+app/views/groups/show.html.erb:16
+Started GET "/groups/1" for ::1 at 2023-01-28 11:19:52 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:63:in `set_group'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/show.html.erb within layouts/application (Duration: 7.2ms | Allocations: 7313)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 7402)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.3ms | Allocations: 8818)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `post' for #<ActionView::Base:0x0000000000cbc0>
+
+  '.freeze;@output_buffer.append=  form_with(model: post, class: "contents") do |form| @output_buffer.safe_append='
+                                                    ^^^^):
+    15: 
+    16: 
+    17: 
+    18:   <%= form_with(model: post, class: "contents") do |form| %>
+    19:   <% if post.errors.any? %>
+    20:     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+    21:       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+  
+app/views/groups/show.html.erb:18
+Started GET "/groups/1" for ::1 at 2023-01-28 11:22:49 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:63:in `set_group'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/show.html.erb within layouts/application (Duration: 8.6ms | Allocations: 7386)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 7474)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.5ms | Allocations: 8867)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `post' for #<ActionView::Base:0x0000000000cee0>
+
+'.freeze;   if post.errors.any? 
+               ^^^^):
+    16: 
+    17: 
+    18:   <%= form_with(url: new_post_path, class: "contents") do |form| %>
+    19:   <% if post.errors.any? %>
+    20:     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+    21:       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+    22: 
+  
+app/views/groups/show.html.erb:19
+app/views/groups/show.html.erb:18
+Started GET "/groups/1" for ::1 at 2023-01-28 11:23:12 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.6ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:63:in `set_group'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/show.html.erb within layouts/application (Duration: 15.9ms | Allocations: 11588)
+  Rendered layout layouts/application.html.erb (Duration: 178.8ms | Allocations: 69012)
+Completed 200 OK in 191ms (Views: 187.3ms | ActiveRecord: 0.6ms | Allocations: 70498)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-28 11:23:30 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.6ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:63:in `set_group'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/show.html.erb within layouts/application (Duration: 5.5ms | Allocations: 4772)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 11750)
+Completed 200 OK in 30ms (Views: 26.0ms | ActiveRecord: 0.6ms | Allocations: 13211)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-28 11:23:47 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:63:in `set_group'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/show.html.erb within layouts/application (Duration: 22.2ms | Allocations: 4759)
+  Rendered layout layouts/application.html.erb (Duration: 34.5ms | Allocations: 13031)
+Completed 200 OK in 40ms (Views: 37.1ms | ActiveRecord: 0.3ms | Allocations: 14462)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-28 11:26:31 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:63:in `set_group'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/show.html.erb within layouts/application (Duration: 3.6ms | Allocations: 4742)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 4830)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.4ms | Allocations: 6233)
+
+
+  
+ActionView::Template::Error (Missing partial posts/_new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/home/jed/Documents/2023-01/jedtap-project/app/views"
+  * "/home/jed/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.4/app/views"
+  * "/home/jed/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionmailbox-7.0.4/app/views"
+
+Did you mean?  posts/form
+               posts/post
+               comments/comment
+               layouts/action_text/contents/content
+               comments/form
+               groups/form):
+    16: 
+    17:   <%# New Post %>
+    18:   <%= turbo_frame_tag "new_post" do%>
+    19:     <%= render new_post_path %>
+    20:   <% end %> 
+    21: 
+    22: 
+  
+app/views/groups/show.html.erb:19
+app/views/groups/show.html.erb:18
+Started GET "/groups/1" for ::1 at 2023-01-28 11:26:46 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.6ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:63:in `set_group'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/show.html.erb within layouts/application (Duration: 4.3ms | Allocations: 4682)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 4770)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.6ms | Allocations: 6163)
+
+
+  
+ActionView::Template::Error (Missing partial posts/_new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/home/jed/Documents/2023-01/jedtap-project/app/views"
+  * "/home/jed/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actiontext-7.0.4/app/views"
+  * "/home/jed/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionmailbox-7.0.4/app/views"
+
+Did you mean?  posts/form
+               posts/post
+               comments/comment
+               layouts/action_text/contents/content
+               comments/form
+               groups/form):
+    16: 
+    17:   <%# New Post %>
+    18:   <%= turbo_frame_tag "new_post" do%>
+    19:     <%= render "posts/new" %>
+    20:   <% end %> 
+    21: 
+    22: 
+  
+app/views/groups/show.html.erb:19
+app/views/groups/show.html.erb:18
+Started GET "/groups/1" for ::1 at 2023-01-28 11:27:01 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:63:in `set_group'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/show.html.erb within layouts/application (Duration: 4.7ms | Allocations: 4910)
+  Rendered layout layouts/application.html.erb (Duration: 19.3ms | Allocations: 12070)
+Completed 200 OK in 35ms (Views: 31.9ms | ActiveRecord: 0.4ms | Allocations: 13493)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-28 11:28:08 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:63:in `set_group'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/show.html.erb within layouts/application (Duration: 12.3ms | Allocations: 4975)
+  Rendered layout layouts/application.html.erb (Duration: 20.4ms | Allocations: 11949)
+Completed 200 OK in 25ms (Views: 22.3ms | ActiveRecord: 0.4ms | Allocations: 13380)
+
+
+Started POST "/posts/new" for ::1 at 2023-01-28 11:28:20 +0800
+  
+ActionController::RoutingError (No route matches [POST] "/posts/new"):
+  
+Started GET "/posts" for ::1 at 2023-01-28 11:28:32 +0800
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:12
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 27)
+  Rendered posts/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 3086)
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 10077)
+Completed 200 OK in 31ms (Views: 15.5ms | ActiveRecord: 0.6ms | Allocations: 12708)
+
+
+Started GET "/posts/new" for ::1 at 2023-01-28 11:28:34 +0800
+Processing by PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 3.2ms | Allocations: 3320)
+  Rendered posts/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 3705)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 10325)
+Completed 200 OK in 27ms (Views: 13.2ms | ActiveRecord: 2.4ms | Allocations: 13874)
+
+
+Started POST "/posts" for ::1 at 2023-01-28 11:28:58 +0800
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"abc ", "content"=>"n publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily replace ."}, "commit"=>"Create Post"}
+  Rendering posts/new.html.erb
+  Rendered posts/_form.html.erb (Duration: 1.7ms | Allocations: 1463)
+  Rendered posts/new.html.erb (Duration: 2.7ms | Allocations: 1625)
+Completed 422 Unprocessable Entity in 28ms (Views: 3.9ms | ActiveRecord: 0.0ms | Allocations: 11683)
+
+
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Load (1.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Create (1.8ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at", "group_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "test"], ["content", ";lweiosdfewoiajfoawijfeoiasdlvnawej jfaklsjdfiwe klasjdfiow ndas ajsdlkfjw"], ["created_at", "2023-01-28 03:30:28.289358"], ["updated_at", "2023-01-28 03:30:28.289358"], ["group_id", 1]]
+  [1m[36mTRANSACTION (15.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Load (0.8ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at", "group_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "test"], ["content", ";lweiosdfewoiajfoawijfeoiasdlvnawej jfaklsjdfiwe klasjdfiow ndas ajsdlkfjw"], ["created_at", "2023-01-28 03:30:30.058035"], ["updated_at", "2023-01-28 03:30:30.058035"], ["group_id", 1]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Load (0.6ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Create (0.8ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at", "group_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "test"], ["content", ";lweiosdfewoiajfoawijfeoiasdlvnawej jfaklsjdfiwe klasjdfiow ndas ajsdlkfjw"], ["created_at", "2023-01-28 03:30:33.051291"], ["updated_at", "2023-01-28 03:30:33.051291"], ["group_id", 2]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at", "group_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "test"], ["content", ";lweiosdfewoiajfoawijfeoiasdlvnawej jfaklsjdfiwe klasjdfiow ndas ajsdlkfjw"], ["created_at", "2023-01-28 03:30:35.368941"], ["updated_at", "2023-01-28 03:30:35.368941"], ["group_id", 3]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at", "group_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "test"], ["content", ";lweiosdfewoiajfoawijfeoiasdlvnawej jfaklsjdfiwe klasjdfiow ndas ajsdlkfjw"], ["created_at", "2023-01-28 03:30:37.144493"], ["updated_at", "2023-01-28 03:30:37.144493"], ["group_id", 3]]
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at", "group_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "test"], ["content", ";lweiosdfewoiajfoawijfeoiasdlvnawej jfaklsjdfiwe klasjdfiow ndas ajsdlkfjw"], ["created_at", "2023-01-28 03:30:37.992580"], ["updated_at", "2023-01-28 03:30:37.992580"], ["group_id", 3]]
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at", "group_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "test"], ["content", ";lweiosdfewoiajfoawijfeoiasdlvnawej jfaklsjdfiwe klasjdfiow ndas ajsdlkfjw"], ["created_at", "2023-01-28 03:30:38.569114"], ["updated_at", "2023-01-28 03:30:38.569114"], ["group_id", 3]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/posts/new" for ::1 at 2023-01-28 11:30:50 +0800
+Processing by PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 2.5ms | Allocations: 2686)
+  Rendered posts/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 2830)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 9706)
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.0ms | Allocations: 9992)
+
+
+Started GET "/" for ::1 at 2023-01-28 11:30:53 +0800
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.5ms | Allocations: 127)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 8807)
+Completed 200 OK in 13ms (Views: 12.5ms | ActiveRecord: 0.0ms | Allocations: 9623)
+
+
+Started GET "/posts/1" for ::1 at 2023-01-28 11:30:57 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 1.5ms | Allocations: 314)
+  Rendered posts/show.html.erb within layouts/application (Duration: 7.1ms | Allocations: 3144)
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 9833)
+Completed 200 OK in 31ms (Views: 17.1ms | ActiveRecord: 0.4ms | Allocations: 11453)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-28 11:31:04 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:63:in `set_group'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/show.html.erb within layouts/application (Duration: 2.7ms | Allocations: 4376)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 11144)
+Completed 200 OK in 13ms (Views: 10.1ms | ActiveRecord: 0.5ms | Allocations: 12001)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-28 11:32:25 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:63:in `set_group'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/show.html.erb within layouts/application (Duration: 3.6ms | Allocations: 5000)
+  Rendered layout layouts/application.html.erb (Duration: 24.3ms | Allocations: 12017)
+Completed 200 OK in 29ms (Views: 26.0ms | ActiveRecord: 0.4ms | Allocations: 13363)
+
+
