@@ -12,10 +12,18 @@
   </div>
 
   <div>
+    <% if Membership.where(group_id: group.id).where(user_id: current_user.id).present? %>
+      <%= link_to "Visit", group, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <% else %>
+      <%= form_with(model: Membership.new()) do |form|  %>
+        <%= form.number_field :user_id, value: current_user.id, type: :hidden %>
+        <%= form.number_field :group_id, value: group.id, type: :hidden %>
+        <%= form.submit "Join", class: "rounded-lg py-3 ml-2 px-5 bg-red-400 inline-block font-medium"  %>
+      <% end %>
+    <% end %>
+
     <%# if action_name != "show" %>
-      <%# link_to "Show this group", group, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
       <%# link_to 'Edit this group', edit_group_path(group), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-      <p><%= link_to 'Join/Pending button*', group, class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %></p>
     <%# end %>
   </div>
 
