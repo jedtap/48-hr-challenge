@@ -77,3 +77,63 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 22ms (Views: 8.6ms | ActiveRecord: 0.0ms | Allocations: 2801)
 
 
+Started GET "/" for ::1 at 2023-01-28 10:28:30 +0800
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.1ms | Allocations: 336)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 5498)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.0ms | Allocations: 8844)
+
+
+  
+ActionView::Template::Error (The asset "tailwind.css" is not present in the asset pipeline.
+):
+     5:     <meta name="viewport" content="width=device-width,initial-scale=1">
+     6:     <%= csrf_meta_tags %>
+     7:     <%= csp_meta_tag %>
+     8:     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+     9: 
+    10:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    11:     <%= javascript_importmap_tags %>
+  
+app/views/layouts/application.html.erb:8
+Started GET "/" for ::1 at 2023-01-28 10:29:03 +0800
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.1ms | Allocations: 336)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 5498)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms | Allocations: 8844)
+
+
+  
+ActionView::Template::Error (The asset "tailwind.css" is not present in the asset pipeline.
+):
+     5:     <meta name="viewport" content="width=device-width,initial-scale=1">
+     6:     <%= csrf_meta_tags %>
+     7:     <%= csp_meta_tag %>
+     8:     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+     9: 
+    10:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    11:     <%= javascript_importmap_tags %>
+  
+app/views/layouts/application.html.erb:8
+Started GET "/" for ::1 at 2023-01-28 10:31:18 +0800
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.1ms | Allocations: 336)
+  Rendered layout layouts/application.html.erb (Duration: 319.2ms | Allocations: 130092)
+Completed 200 OK in 331ms (Views: 322.9ms | ActiveRecord: 0.0ms | Allocations: 133486)
+
+
+Started GET "/" for ::1 at 2023-01-28 10:35:02 +0800
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 1.5ms | Allocations: 336)
+  Rendered layout layouts/application.html.erb (Duration: 224.6ms | Allocations: 83617)
+Completed 200 OK in 236ms (Views: 228.5ms | ActiveRecord: 0.0ms | Allocations: 87009)
+
+
