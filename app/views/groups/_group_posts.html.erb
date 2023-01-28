@@ -1,0 +1,14 @@
+<% @posts.each do |post| %>
+    <%= post.title %>
+    <br/>
+    <%= post.content %>
+    <br/>
+    <div>
+        Last comment 3 days ago • Edit • Delete • Created by You
+    </div>
+    <br/>
+    <%= link_to "View post ->", post %>
+    <br/>
+    <br/>
+
+<% end %>
