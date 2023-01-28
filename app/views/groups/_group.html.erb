@@ -1,15 +1,22 @@
-<div id="<%= dom_id group %>">
-  <p class="my-5">
-    <%= group.name %>
-    <div>123 Members</div>
-    <div>456 Posts</div>
-    <div>Last activity 3 days ago</div>
-  </p>
+<div id="<%= dom_id group %>" class="flex gap5 my-5">
 
-  <% if action_name != "show" %>
-    <%# link_to "Show this group", group, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%# link_to 'Edit this group', edit_group_path(group), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Join/Pending button*', group, class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
+  <div >
+    <p>
+      <%= group.name %>
+    </p>
+    <div class="flex gap-5">
+      <div>123 Members</div>
+      <div>456 Posts</div>
+      <div>Last activity 3 days ago</div>
+    </div>
+  </div>
+
+  <div>
+    <%# if action_name != "show" %>
+      <%# link_to "Show this group", group, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <%# link_to 'Edit this group', edit_group_path(group), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+      <p><%= link_to 'Join/Pending button*', group, class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %></p>
+    <%# end %>
+  </div>
+
 </div>
