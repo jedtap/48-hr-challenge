@@ -1,7 +1,7 @@
 <div class="bg-black/50 fixed top-0 left-0 w-full h-full flex justify-center align-middle">
     <div class="w-1/2 m-auto bg-white rounded-xl p-32">
         <h2> <%= @title %> Group</h2>
-        <%= form_with(model: Group.new()) do |form| %>
+        <%= form_with(model: @group) do |form| %>
             <%= form.number_field :user_id, value: @user_id, type: :hidden %>
 
             <div class="flex gap-5 p-5">

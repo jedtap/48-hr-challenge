@@ -1,12 +1,19 @@
 <div class="mx-auto md:w-2/3 w-full flex flex-col">
-  <div class="mx-auto">
+  <div>
     <% if notice.present? %>
       <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
     <% end %>
 
-    <%= @group.name %>
+    <div data-controller="modal">
+      <%= @group.name %>
+      <span data-action="click->modal#toggle"> <i class="fa-solid fa-gear"></i> </span>
 
-    <%= link_to 'Edit this group', edit_group_path(@group), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <%# Modal %>
+      <div data-modal-target="modalArea" hidden>
+        <%= render(ModalComponent.new('Edit', current_user.id, @group )) %>
+      </div>
+    </div>
+
     <div class="inline-block ml-2">
       <%# button_to 'Destroy this group', group_path(@group), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
     </div>

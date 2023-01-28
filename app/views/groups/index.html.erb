@@ -20,7 +20,7 @@
 
       <%# Modal %>
       <div data-modal-target="modalArea" hidden>
-        <%= render(ModalComponent.new('Create', current_user.id )) %>
+        <%= render(ModalComponent.new('Create', current_user.id, Group.new() )) %>
       </div>
 
       <%# link_to 'New group', new_group_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
