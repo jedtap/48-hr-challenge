@@ -137,3 +137,44 @@ Processing by PagesController#login as HTML
 Completed 200 OK in 236ms (Views: 228.5ms | ActiveRecord: 0.0ms | Allocations: 87009)
 
 
+  [1m[35m (14.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (12.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8183932473577995435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGroups (20230128024305)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.7ms)[0m  [1m[35mCREATE TABLE "groups" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230128024305"]]
+  [1m[36mTRANSACTION (11.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-01-28 02:43:15.439375"], ["updated_at", "2023-01-28 02:43:15.439375"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8183932473577995435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2023-01-28 10:43:19 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#login as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/login.html.erb within layouts/application
+  Rendered pages/login.html.erb within layouts/application (Duration: 0.8ms | Allocations: 129)
+  Rendered layout layouts/application.html.erb (Duration: 20.3ms | Allocations: 24195)
+Completed 200 OK in 23ms (Views: 22.3ms | ActiveRecord: 0.0ms | Allocations: 25169)
+
+
+Started GET "/posts" for ::1 at 2023-01-28 10:43:22 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/posts"):
+  
+Started GET "/groups" for ::1 at 2023-01-28 10:43:28 +0800
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.6ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:12
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 27)
+  Rendered groups/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 3187)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 10098)
+Completed 200 OK in 17ms (Views: 13.0ms | ActiveRecord: 0.6ms | Allocations: 11713)
+
+
