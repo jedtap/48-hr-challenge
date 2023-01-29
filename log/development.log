@@ -26267,3 +26267,29 @@ Processing by GroupsController#index as HTML
 Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.3ms | Allocations: 11973)
 
 
+Started GET "/" for ::1 at 2023-01-29 16:30:18 +0800
+  [1m[36mUser Load (6.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:33
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 13)
+  Rendered groups/index.html.erb within layouts/application (Duration: 7.3ms | Allocations: 4137)
+  Rendered layout layouts/application.html.erb (Duration: 18.6ms | Allocations: 11583)
+Completed 200 OK in 21ms (Views: 20.0ms | ActiveRecord: 0.3ms | Allocations: 11867)
+
+
+Started GET "/" for ::1 at 2023-01-29 16:30:51 +0800
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.6ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:33
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 13)
+  Rendered groups/index.html.erb within layouts/application (Duration: 19.8ms | Allocations: 4138)
+  Rendered layout layouts/application.html.erb (Duration: 28.9ms | Allocations: 11573)
+Completed 200 OK in 31ms (Views: 29.4ms | ActiveRecord: 0.6ms | Allocations: 11856)
+
+
