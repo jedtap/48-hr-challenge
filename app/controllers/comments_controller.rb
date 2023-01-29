@@ -49,6 +49,15 @@ class CommentsController < ApplicationController
 
   # DELETE /comments/1 or /comments/1.json
   def destroy
+
+    replies = Reply.where(comment_id: @comment.id)
+
+    if replies.count > 0
+      replies.each do |reply|
+        reply.destroy
+      end
+    end
+
     @comment.destroy
 
     respond_to do |format|
