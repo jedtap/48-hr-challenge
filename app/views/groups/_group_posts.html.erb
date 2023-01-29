@@ -4,16 +4,28 @@
     <%= post.content %>
     <br/>
     <div>
-        Last comment 3 days ago
+
+        <% if Comment.where(post_id: post.id).present? %>
+            Last comment 
+            <%= time_ago_in_words(Comment.where(post_id: post.id).order(updated_at: :desc).last.updated_at) %>
+             ago •  
+        <% end %>
+
         
-        • <%= link_to 'Edit', edit_post_path(post) %>
+        <%= link_to 'Edit', edit_post_path(post) %>
         •         
         <span>
             <%= form_with(model: post, method: :delete) do |form| %>
                 <%= form.submit "Delete" %>
             <% end %>
         </span>
-         • Created by You
+         • Created by 
+            <% if current_user.id == post.user_id %>
+                You
+            <% else %>
+                <%= User.where(id: post.user_id).first.name %>
+            <% end %>
+
     </div>
     <br/>
     <%= link_to "View post ->", post %>

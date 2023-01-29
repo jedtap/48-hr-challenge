@@ -8,7 +8,17 @@
       <%= comment.remark %>
       <br/>
       <div>
-          Name commented 3 days ago • 
+
+            <% if current_user.id == comment.user_id %>
+                You
+            <% else %>
+                <%= User.where(id: comment.user_id).first.name %>
+            <% end %>
+
+          commented 
+            <%= time_ago_in_words(Comment.where(id: comment.id).last.updated_at) %>
+          
+          ago • 
           
           <%= form_with(model: comment, method: :delete) do |form| %>
             <%= form.submit "Delete" %>
@@ -33,6 +43,7 @@
               <%= form.number_field :comment_id, value: comment.id, type: :hidden %>
               <%= form.number_field :post_id, value: @post.id, type: :hidden %>
               <%= form.number_field :group_id, value: @post.group_id, type: :hidden %>
+              <%= form.number_field :user_id, value: current_user.id, type: :hidden %>
 
             <div class="flex justify-end">
               <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>

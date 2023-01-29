@@ -3,7 +3,20 @@
     <%= reply.feedback %>
     <br/>
     <div>
-        Name replied 3 days ago • 
+
+
+      <% if current_user.id == reply.user_id %>
+                You
+            <% else %>
+                <%= User.where(id: reply.user_id).first.name %>
+            <% end %>
+
+          replied 
+            <%= time_ago_in_words(Reply.where(id: reply.id).last.updated_at) %>
+          
+          ago • 
+
+
         
         
             <span>        

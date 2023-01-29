@@ -40,7 +40,7 @@
         <% end %>
 
         <% unless latest_reply == 0 && latest_comment == 0 && latest_post == 0 %>
-          Latest activity <%= time_ago_in_words([latest_reply,latest_comment, latest_post].sort.last) %> ago
+          Latest activity <%# time_ago_in_words([latest_reply,latest_comment, latest_post].sort.last) %> ago
         <% end %>
 
       </div>
