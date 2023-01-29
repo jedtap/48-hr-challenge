@@ -5,9 +5,45 @@
       <%= group.name %>
     </p>
     <div class="flex gap-5">
-      <div>123 Members</div>
-      <div>456 Posts</div>
-      <div>Last activity 3 days ago</div>
+      <div>
+        <% if Membership.where(group_id: group.id).count > 0 %> 
+          <%= Membership.where(group_id: group.id).count %> Members
+        <% else %>
+          <%= Membership.where(group_id: group.id).count %> Member
+        <% end %>
+      </div>
+      <div>
+        <% if Post.where(group_id: group.id).count > 0 %> 
+          <%= Membership.where(group_id: group.id).count %> Posts
+        <% else %>
+          <%= Membership.where(group_id: group.id).count %> Post
+        <% end %>
+      </div>
+      <div>
+        
+        <% if Reply.where(group_id: group.id).present? %>
+          <% latest_reply = Reply.where(group_id: group.id).order(updated_at: :desc).last.updated_at %>
+        <% else %>
+          <% latest_reply = 0 %>
+        <% end %>
+
+        <% if Comment.where(group_id: group.id).present? %>
+          <% latest_comment = Comment.where(group_id: group.id).order(updated_at: :desc).last.updated_at %>
+        <% else %>
+          <% latest_comment = 0 %>
+        <% end %>
+
+        <% if Post.where(group_id: group.id).present? %>
+          <% latest_post = Post.where(group_id: group.id).order(updated_at: :desc).last.updated_at %>
+        <% else %>
+          <% latest_post = 0 %>
+        <% end %>
+
+        <% unless latest_reply == 0 && latest_comment == 0 && latest_post == 0 %>
+          Latest activity <%= time_ago_in_words([latest_reply,latest_comment, latest_post].sort.last) %> ago
+        <% end %>
+
+      </div>
     </div>
   </div>
 
