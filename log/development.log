@@ -16255,3 +16255,168 @@ Completed 200 OK in 39ms (Views: 34.0ms | ActiveRecord: 4.5ms | Allocations: 238
   [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "name" = $2 WHERE "users"."id" = $3[0m  [["updated_at", "2023-01-29 02:26:28.447223"], ["name", "bbq"], ["id", 2]]
   [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT[0m
   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/groups" for ::1 at 2023-01-29 10:27:08 +0800
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/groups/index.html.erb:23
+  [1m[36mGroup Load (1.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:32
+  [1m[36mMembership Load (1.3ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 1], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.6ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 2], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 5], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 36], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 37], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 38], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.5ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 39], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 40], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 3], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.5ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 4], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  Rendered collection of groups/_group.html.erb [10 times] (Duration: 27.2ms | Allocations: 11179)
+  Rendered groups/index.html.erb within layouts/application (Duration: 54.5ms | Allocations: 18253)
+  Rendered layout layouts/application.html.erb (Duration: 64.4ms | Allocations: 25687)
+Completed 200 OK in 65ms (Views: 57.8ms | ActiveRecord: 7.3ms | Allocations: 25969)
+
+
+Started POST "/memberships" for ::1 at 2023-01-29 10:27:11 +0800
+Processing by MembershipsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "membership"=>{"user_id"=>"3", "group_id"=>"37"}, "commit"=>"Join"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/memberships_controller.rb:27:in `block in create'
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 37], ["LIMIT", 1]]
+  ↳ app/controllers/memberships_controller.rb:27:in `block in create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/memberships_controller.rb:27:in `block in create'
+  [1m[36mMembership Create (3.5ms)[0m  [1m[32mINSERT INTO "memberships" ("group_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["group_id", 37], ["user_id", 3], ["created_at", "2023-01-29 02:27:11.963353"], ["updated_at", "2023-01-29 02:27:11.963353"]]
+  ↳ app/controllers/memberships_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/memberships_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/groups/37
+Completed 302 Found in 27ms (ActiveRecord: 6.4ms | Allocations: 10198)
+
+
+Started GET "/groups/37" for ::1 at 2023-01-29 10:27:11 +0800
+Processing by GroupsController#show as TURBO_STREAM
+  Parameters: {"id"=>"37"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 37], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:92:in `set_group'
+  [1m[36mMembership Load (0.2ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 37]]
+  ↳ app/controllers/groups_controller.rb:38:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:15
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 37]]
+  ↳ app/views/groups/_group_posts.html.erb:1
+  Rendered groups/_group_posts.html.erb (Duration: 3.6ms | Allocations: 997)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  ↳ app/views/groups/show.html.erb:57
+  Rendered groups/show.html.erb within layouts/application (Duration: 37.4ms | Allocations: 9992)
+  Rendered layout layouts/application.html.erb (Duration: 46.2ms | Allocations: 17775)
+Completed 200 OK in 75ms (Views: 44.7ms | ActiveRecord: 4.1ms | Allocations: 22504)
+
+
+Started GET "/groups" for ::1 at 2023-01-29 10:27:18 +0800
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/groups/index.html.erb:23
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:32
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 1], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.5ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 2], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.5ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 5], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 36], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 37], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 38], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 39], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.5ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 40], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.2ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 3], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.2ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 4], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  Rendered collection of groups/_group.html.erb [10 times] (Duration: 27.2ms | Allocations: 10859)
+  Rendered groups/index.html.erb within layouts/application (Duration: 40.0ms | Allocations: 18071)
+  Rendered layout layouts/application.html.erb (Duration: 52.6ms | Allocations: 25715)
+Completed 200 OK in 55ms (Views: 49.5ms | ActiveRecord: 4.8ms | Allocations: 26033)
+
+
+Started POST "/memberships" for ::1 at 2023-01-29 10:27:25 +0800
+Processing by MembershipsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "membership"=>{"user_id"=>"3", "group_id"=>"3"}, "commit"=>"Join"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/memberships_controller.rb:27:in `block in create'
+  [1m[36mGroup Load (0.6ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/memberships_controller.rb:27:in `block in create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/memberships_controller.rb:27:in `block in create'
+  [1m[36mMembership Create (0.5ms)[0m  [1m[32mINSERT INTO "memberships" ("group_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["group_id", 3], ["user_id", 3], ["created_at", "2023-01-29 02:27:25.360036"], ["updated_at", "2023-01-29 02:27:25.360036"]]
+  ↳ app/controllers/memberships_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/memberships_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/groups/3
+Completed 302 Found in 13ms (ActiveRecord: 3.5ms | Allocations: 5922)
+
+
+Started GET "/groups/3" for ::1 at 2023-01-29 10:27:25 +0800
+Processing by GroupsController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:92:in `set_group'
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/controllers/groups_controller.rb:38:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:15
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/views/groups/_group_posts.html.erb:1
+  Rendered groups/_group_posts.html.erb (Duration: 1.9ms | Allocations: 674)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 2], ["id", 1], ["id", 3]]
+  ↳ app/views/groups/show.html.erb:57
+  Rendered groups/show.html.erb within layouts/application (Duration: 11.4ms | Allocations: 5853)
+  Rendered layout layouts/application.html.erb (Duration: 20.5ms | Allocations: 13369)
+Completed 200 OK in 27ms (Views: 20.5ms | ActiveRecord: 2.2ms | Allocations: 14846)
+
+
+Started GET "/groups/3" for ::1 at 2023-01-29 10:27:49 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:92:in `set_group'
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/controllers/groups_controller.rb:38:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mUser Load (11.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:15
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/views/groups/_group_posts.html.erb:1
+  Rendered groups/_group_posts.html.erb (Duration: 4.6ms | Allocations: 849)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 2], ["id", 1], ["id", 3]]
+  ↳ app/views/groups/show.html.erb:57
+  Rendered groups/show.html.erb within layouts/application (Duration: 31.9ms | Allocations: 7040)
+  Rendered layout layouts/application.html.erb (Duration: 41.4ms | Allocations: 15093)
+Completed 200 OK in 50ms (Views: 32.0ms | ActiveRecord: 13.8ms | Allocations: 17187)
+
+
