@@ -7,7 +7,9 @@
     <%= render @post %>
 
     <div class="text-2xl font-semibold"> <h2>Comments</h2> </div>
-    <%= render "comments" %>
+    <div id="comments">
+      <%= render "comments" %>
+    </div>
     
     <%= form_with(model: Comment.new()) do |form| %>
       <div class="my-5 mt-16">

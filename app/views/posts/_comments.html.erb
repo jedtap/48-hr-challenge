@@ -30,8 +30,10 @@
 
     <%# Indented content containing the replies %>
     <div class="pl-10">
-      <%= render "replies", comment_id: comment.id %>
-      
+      <div id="replies-<%= comment.id %>">
+        <%= render "replies", comment_id: comment.id %>
+      </div>
+
       <div data-replies-target="replyBox" hidden >
         <%= form_with(model: Reply.new()) do |form| %>
 
@@ -51,8 +53,6 @@
       </div>
 
     </div>
-
-
 
   </div>
 <% end %>

@@ -25,7 +25,11 @@ class RepliesController < ApplicationController
 
     respond_to do |format|
       if @reply.save
-        format.html { redirect_to reply_url(@reply), notice: "Reply was successfully created." }
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.append("replies-#{@reply.comment_id}", partial: "posts/reply", locals: {reply: @reply})
+          ]
+        end
         format.json { render :show, status: :created, location: @reply }
       else
         format.html { render :new, status: :unprocessable_entity }

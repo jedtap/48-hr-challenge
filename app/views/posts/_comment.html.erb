@@ -1,0 +1,23 @@
+<br/><br/>
+<div data-controller="replies">
+    <%= comment.remark %>
+    <div class="flex text-slate-500">
+
+        <%# Logic for the author %>
+        <% if current_user.id == comment.user_id %>
+            You
+        <% else %>
+            <%= User.where(id: comment.user_id).first.name %>
+        <% end %>
+        commented <%= time_ago_in_words(Comment.where(id: comment.id).last.updated_at) %> ago   • 
+
+        <%# Delete button %>
+        <div class="flex gap-3">
+        <span> </span>
+        <%= form_with(model: comment, method: :delete) do |form| %>
+            <%= form.submit "Delete" %>
+        <% end %>
+        </div>
+    </div>
+</div>
+

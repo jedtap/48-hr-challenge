@@ -1,0 +1,19 @@
+<br/> <%= reply.feedback %> <br/>
+<div class="flex gap-3 text-slate-500"">
+
+    <%# Logic for the author %>
+    <% if current_user.id == reply.user_id %>
+    You
+    <% else %>
+    <%= User.where(id: reply.user_id).first.name %>
+    <% end %>
+    replied <%= time_ago_in_words(Reply.where(id: reply.id).last.updated_at) %> ago • 
+
+    <%# Delete Link %>
+    <div class="flex gap-3">
+    <span> </span>
+    <%= form_with(model: reply, method: :delete) do |form| %>
+        <%= form.submit "Delete" %>
+    <% end %>
+    </div>
+</div>
