@@ -30366,3 +30366,255 @@ Processing by GroupsController#show as HTML
 Completed 200 OK in 53ms (Views: 38.3ms | ActiveRecord: 6.6ms | Allocations: 20412)
 
 
+Started GET "/" for ::1 at 2023-01-29 17:26:01 +0800
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/_filter_results.html.erb:1
+  [1m[36mMembership Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:11
+  [1m[36mCACHE Membership Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:14
+  [1m[36mPost Count (7.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:20
+  [1m[36mCACHE Post Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:21
+  [1m[36mReply Load (6.9ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:31
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:38
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:45
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1 ORDER BY "posts"."updated_at" DESC LIMIT $2[0m  [["group_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:46
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 1], ["user_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:60
+  [1m[36mMembership Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/_filter_results.html.erb:11
+  [1m[36mCACHE Membership Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/_filter_results.html.erb:14
+  [1m[36mPost Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/_filter_results.html.erb:20
+  [1m[36mCACHE Post Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/_filter_results.html.erb:23
+  [1m[36mReply Load (0.5ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/_filter_results.html.erb:31
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/_filter_results.html.erb:38
+  [1m[36mPost Load (6.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/_filter_results.html.erb:45
+  [1m[36mMembership Load (0.6ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 2], ["user_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:60
+  [1m[36mMembership Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/views/groups/_filter_results.html.erb:11
+  [1m[36mCACHE Membership Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/views/groups/_filter_results.html.erb:14
+  [1m[36mPost Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/views/groups/_filter_results.html.erb:20
+  [1m[36mCACHE Post Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/views/groups/_filter_results.html.erb:23
+  [1m[36mReply Load (0.4ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/views/groups/_filter_results.html.erb:31
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/views/groups/_filter_results.html.erb:38
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/views/groups/_filter_results.html.erb:45
+  [1m[36mMembership Load (0.7ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 3], ["user_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:60
+  Rendered groups/_filter_results.html.erb (Duration: 71.6ms | Allocations: 18225)
+  Rendered groups/index.html.erb within layouts/application (Duration: 78.1ms | Allocations: 22337)
+  Rendered layout layouts/application.html.erb (Duration: 94.8ms | Allocations: 31717)
+Completed 200 OK in 98ms (Views: 67.8ms | ActiveRecord: 29.2ms | Allocations: 32620)
+
+
+Started GET "/" for ::1 at 2023-01-29 17:26:18 +0800
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.8ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/_filter_results.html.erb:1
+  [1m[36mMembership Count (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:11
+  [1m[36mCACHE Membership Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:14
+  [1m[36mPost Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:20
+  [1m[36mCACHE Post Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:21
+  [1m[36mReply Load (0.5ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:31
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:38
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:45
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1 ORDER BY "posts"."updated_at" DESC LIMIT $2[0m  [["group_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:46
+  [1m[36mMembership Load (0.7ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 1], ["user_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:60
+  [1m[36mMembership Count (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/_filter_results.html.erb:11
+  [1m[36mCACHE Membership Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/_filter_results.html.erb:14
+  [1m[36mPost Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/_filter_results.html.erb:20
+  [1m[36mCACHE Post Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/_filter_results.html.erb:23
+  [1m[36mReply Load (0.4ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/_filter_results.html.erb:31
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/_filter_results.html.erb:38
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/_filter_results.html.erb:45
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 2], ["user_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:60
+  [1m[36mMembership Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/views/groups/_filter_results.html.erb:11
+  [1m[36mCACHE Membership Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/views/groups/_filter_results.html.erb:14
+  [1m[36mPost Count (8.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/views/groups/_filter_results.html.erb:20
+  [1m[36mCACHE Post Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/views/groups/_filter_results.html.erb:23
+  [1m[36mReply Load (0.4ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/views/groups/_filter_results.html.erb:31
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/views/groups/_filter_results.html.erb:38
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/views/groups/_filter_results.html.erb:45
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 3], ["user_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:60
+  Rendered groups/_filter_results.html.erb (Duration: 58.9ms | Allocations: 17088)
+  Rendered groups/index.html.erb within layouts/application (Duration: 72.8ms | Allocations: 20642)
+  Rendered layout layouts/application.html.erb (Duration: 90.6ms | Allocations: 29451)
+Completed 200 OK in 92ms (Views: 74.0ms | ActiveRecord: 17.6ms | Allocations: 29754)
+
+
+Started GET "/" for ::1 at 2023-01-29 17:26:22 +0800
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (1.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/_filter_results.html.erb:1
+  [1m[36mMembership Count (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:11
+  [1m[36mCACHE Membership Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:14
+  [1m[36mPost Count (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:20
+  [1m[36mCACHE Post Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:21
+  [1m[36mReply Load (0.7ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:31
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:38
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:45
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1 ORDER BY "posts"."updated_at" DESC LIMIT $2[0m  [["group_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:46
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 1], ["user_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:60
+  [1m[36mMembership Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/_filter_results.html.erb:11
+  [1m[36mCACHE Membership Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/_filter_results.html.erb:14
+  [1m[36mPost Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/_filter_results.html.erb:20
+  [1m[36mCACHE Post Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/_filter_results.html.erb:23
+  [1m[36mReply Load (4.6ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/_filter_results.html.erb:31
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/_filter_results.html.erb:38
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/_filter_results.html.erb:45
+  [1m[36mMembership Load (0.5ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 2], ["user_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:60
+  [1m[36mMembership Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/views/groups/_filter_results.html.erb:11
+  [1m[36mCACHE Membership Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/views/groups/_filter_results.html.erb:14
+  [1m[36mPost Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/views/groups/_filter_results.html.erb:20
+  [1m[36mCACHE Post Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/views/groups/_filter_results.html.erb:23
+  [1m[36mReply Load (1.1ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/views/groups/_filter_results.html.erb:31
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/views/groups/_filter_results.html.erb:38
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/views/groups/_filter_results.html.erb:45
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 3], ["user_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:60
+  Rendered groups/_filter_results.html.erb (Duration: 74.3ms | Allocations: 17088)
+  Rendered groups/index.html.erb within layouts/application (Duration: 91.9ms | Allocations: 20642)
+  Rendered layout layouts/application.html.erb (Duration: 100.5ms | Allocations: 28274)
+Completed 200 OK in 103ms (Views: 86.3ms | ActiveRecord: 16.3ms | Allocations: 28558)
+
+
+Started GET "/" for ::1 at 2023-01-29 17:26:27 +0800
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.8ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/_filter_results.html.erb:1
+  [1m[36mMembership Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:11
+  [1m[36mCACHE Membership Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:14
+  [1m[36mPost Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:20
+  [1m[36mCACHE Post Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:21
+  [1m[36mReply Load (0.4ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:31
+  [1m[36mComment Load (7.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:38
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:45
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1 ORDER BY "posts"."updated_at" DESC LIMIT $2[0m  [["group_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:46
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 1], ["user_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:60
+  [1m[36mMembership Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/_filter_results.html.erb:11
+  [1m[36mCACHE Membership Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/_filter_results.html.erb:14
+  [1m[36mPost Count (2.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/_filter_results.html.erb:20
+  [1m[36mCACHE Post Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/_filter_results.html.erb:23
+  [1m[36mReply Load (0.4ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/_filter_results.html.erb:31
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/_filter_results.html.erb:38
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/_filter_results.html.erb:45
+  [1m[36mMembership Load (0.3ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 2], ["user_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:60
+  [1m[36mMembership Count (4.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/views/groups/_filter_results.html.erb:11
+  [1m[36mCACHE Membership Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/views/groups/_filter_results.html.erb:14
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/views/groups/_filter_results.html.erb:20
+  [1m[36mCACHE Post Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/views/groups/_filter_results.html.erb:23
+  [1m[36mReply Load (0.5ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/views/groups/_filter_results.html.erb:31
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/views/groups/_filter_results.html.erb:38
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 3]]
+  ↳ app/views/groups/_filter_results.html.erb:45
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 3], ["user_id", 1]]
+  ↳ app/views/groups/_filter_results.html.erb:60
+  Rendered groups/_filter_results.html.erb (Duration: 66.0ms | Allocations: 17088)
+  Rendered groups/index.html.erb within layouts/application (Duration: 78.3ms | Allocations: 20642)
+  Rendered layout layouts/application.html.erb (Duration: 95.3ms | Allocations: 29448)
+Completed 200 OK in 97ms (Views: 73.8ms | ActiveRecord: 22.9ms | Allocations: 29731)
+
+
