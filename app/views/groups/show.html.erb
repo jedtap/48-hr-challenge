@@ -1,4 +1,3 @@
-
 <div class="w-max flex">
   <div class="mx-auto md:w-2/3 w-full flex flex-col">
     <div>
@@ -12,7 +11,7 @@
 
         <%# Modal %>
         <div data-modal-target="modalArea" hidden>
-          <%= render(ModalComponent.new('Edit', current_user.id, @group )) %>
+          <%= render(ModalComponent.new('Edit', current_user.id, @group, 'Save' )) %>
         </div>
       </div>
 

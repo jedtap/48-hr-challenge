@@ -1,28 +1,71 @@
 <% groups.each do |group| %>
-    <div id="<%= dom_id group %>" class="flex gap5 my-5">
+    <div id="<%= dom_id group %>" class="flex gap-5 my-7 place-items-center">
 
-    <div >
-        <p>
-        <%= group.name %>
-        </p>
-        <div class="flex gap-5">
-        <div>123 Members</div>
-        <div>456 Posts</div>
-        <div>Last activity 3 days ago</div>
-        </div>
-    </div>
+      <%# Group Details %>
+      <div class="flex flex-col w-1/2 gap-2">
+          <p class="text-lg font-bold"> <%= group.name %> </p>
+          <div class="flex gap-5">
+            
+            <%# Logic for Member count %>
+            <div>
+              <% if Membership.where(group_id: group.id).count > 1 %> 
+                <%= Membership.where(group_id: group.id).count %> Members
+              <% else %>
+                <%= Membership.where(group_id: group.id).count %> Member
+              <% end %>
+            </div>
+            
+            <%# Logic for Post count %>
+            <div>
+              <% if Post.where(group_id: group.id).count > 1 %> 
+                <%= Post.where(group_id: group.id).count %> Posts
+              <% else %>
+                <%= Post.where(group_id: group.id).count %> Post
+              <% end %>
+            </div>
 
-    <% if Membership.where(group_id: group.id).where(user_id: current_user.id).present? %>
-      <%= link_to "Visit", group, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <% else %>
-      <%= form_with(model: Membership.new()) do |form|  %>
-        <%= form.number_field :user_id, value: current_user.id, type: :hidden %>
-        <%= form.number_field :group_id, value: group.id, type: :hidden %>
-        <%= form.submit "Join", class: "rounded-lg py-3 ml-2 px-5 bg-red-400 inline-block font-medium"  %>
+            <%# Logic for last activity %>
+            <div>
+            
+              <%# Save date of latest reply %>
+              <% if Reply.where(group_id: group.id).present? %>
+                <% latest_reply = Reply.where(group_id: group.id).order(updated_at: :desc).first.updated_at.to_i %>
+              <% else %>
+                <% latest_reply = 0 %>
+              <% end %>
+
+              <%# Save date of latest comment %>
+              <% if Comment.where(group_id: group.id).present? %>
+                <% latest_comment = Comment.where(group_id: group.id).order(updated_at: :desc).first.updated_at.to_i %>
+              <% else %>
+                <% latest_comment = 0 %>
+              <% end %>
+
+              <%# Save date of latest post %>
+              <% if Post.where(group_id: group.id).present? %>
+                <% latest_post = Post.where(group_id: group.id).order(updated_at: :desc).first.updated_at.to_i %>
+              <% else %>
+                <% latest_post = 0 %>
+              <% end %>
+
+              <%# Display the latest date out of the 3 %>
+              <% unless latest_reply == 0 && latest_comment == 0 && latest_post == 0 %>
+                Latest activity <%= time_ago_in_words([latest_reply, latest_comment, latest_post].sort.last) %> ago
+              <% end %>
+            </div>
+          </div>
+      </div>
+
+      <%# Join and Visit button logic %>
+      <% if Membership.where(group_id: group.id).where(user_id: current_user.id).present? %>
+        <%= link_to "Visit", group, class: "rounded-lg py-3 px-12 bg-slate-100 inline-block font-medium" %>
+      <% else %>
+        <%= form_with(model: Membership.new()) do |form|  %>
+          <%= form.number_field :user_id, value: current_user.id, type: :hidden %>
+          <%= form.number_field :group_id, value: group.id, type: :hidden %>
+          <%= form.submit "Join", class: "rounded-lg py-3 px-12 border-2 border-slate-500 inline-block font-medium"  %>
+        <% end %>
       <% end %>
-    <% end %>
-
-
 
     </div>
 <% end  %>
