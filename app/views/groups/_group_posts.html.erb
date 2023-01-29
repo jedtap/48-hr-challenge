@@ -1,35 +1,40 @@
-<% @posts.each do |post| %>
-    <%= post.title %>
-    <br/>
-    <%= post.content %>
-    <br/>
-    <div>
+<h2 class="text-3xl font-semibold mb-7"> All Posts </h2>
 
+<% @posts.each do |post| %>
+
+    <h3 class="text-lg font-semibold"> <%= post.title %> </h3> <br/>
+    <%= post.content %> <br/>
+
+    <%# Statistics about the post %>
+    <div class="flex gap-3 mt-3 text-slate-500">
+        <%# Time of Last comment  %>
         <% if Comment.where(post_id: post.id).present? %>
             Last comment 
             <%= time_ago_in_words(Comment.where(post_id: post.id).order(updated_at: :desc).last.updated_at) %>
-             ago •  
+             ago  •  
         <% end %>
 
-        
-        <%= link_to 'Edit', edit_post_path(post) %>
-        •         
-        <span>
+        <%# Edit link %>
+        <%= link_to 'Edit', edit_post_path(post) %>  •      
+
+        <%# Delete link %>
+        <div class="flex gap-3">
             <%= form_with(model: post, method: :delete) do |form| %>
                 <%= form.submit "Delete" %>
             <% end %>
-        </span>
-         • Created by 
-            <% if current_user.id == post.user_id %>
-                You
-            <% else %>
-                <%= User.where(id: post.user_id).first.name %>
-            <% end %>
+            <span> • </span>
+        </div>
+
+        <%# Created by %>
+        Created by 
+        <% if current_user.id == post.user_id %>
+            You
+        <% else %>
+            <%= User.where(id: post.user_id).first.name %>
+        <% end %>
 
     </div>
-    <br/>
     <%= link_to "View post ->", post %>
-    <br/>
-    <br/>
-
+    
+    <br/> <br/> <br/>
 <% end %>

@@ -32050,3 +32050,950 @@ Processing by GroupsController#show as HTML
 Completed 200 OK in 67ms (Views: 57.2ms | ActiveRecord: 4.6ms | Allocations: 23175)
 
 
+Started GET "/groups/1" for ::1 at 2023-01-29 17:48:48 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.6ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:92:in `set_group'
+  [1m[36mMembership Load (0.1ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/controllers/groups_controller.rb:38:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:18
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:3
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:10
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/groups/_group_posts.html.erb:10
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/groups/_group_posts.html.erb:10
+  Rendered groups/_group_posts.html.erb (Duration: 13.2ms | Allocations: 4056)
+  [1m[36mUser Load (7.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/groups/show.html.erb:54
+  [1m[36mMembership Load (0.9ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2 ORDER BY "memberships"."id" ASC LIMIT $3[0m  [["group_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  Rendered groups/show.html.erb within layouts/application (Duration: 45.4ms | Allocations: 11726)
+  Rendered layout layouts/application.html.erb (Duration: 56.8ms | Allocations: 19823)
+Completed 200 OK in 63ms (Views: 46.2ms | ActiveRecord: 12.9ms | Allocations: 21916)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-29 17:49:04 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:92:in `set_group'
+  [1m[36mMembership Load (0.6ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/controllers/groups_controller.rb:38:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mUser Load (5.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:18
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:3
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:10
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/groups/_group_posts.html.erb:10
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/groups/_group_posts.html.erb:10
+  Rendered groups/_group_posts.html.erb (Duration: 21.2ms | Allocations: 4056)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/groups/show.html.erb:54
+  [1m[36mMembership Load (0.5ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2 ORDER BY "memberships"."id" ASC LIMIT $3[0m  [["group_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  [1m[36mMembership Load (0.5ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  Rendered groups/show.html.erb within layouts/application (Duration: 45.8ms | Allocations: 11725)
+  Rendered layout layouts/application.html.erb (Duration: 63.7ms | Allocations: 19824)
+Completed 200 OK in 73ms (Views: 57.4ms | ActiveRecord: 9.7ms | Allocations: 21917)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-29 17:49:15 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:92:in `set_group'
+  [1m[36mMembership Load (0.6ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/controllers/groups_controller.rb:38:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:18
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:3
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:10
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/groups/_group_posts.html.erb:10
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/groups/_group_posts.html.erb:10
+  Rendered groups/_group_posts.html.erb (Duration: 12.4ms | Allocations: 4056)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/groups/show.html.erb:54
+  [1m[36mMembership Load (0.6ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2 ORDER BY "memberships"."id" ASC LIMIT $3[0m  [["group_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  [1m[36mMembership Load (2.6ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  Rendered groups/show.html.erb within layouts/application (Duration: 34.0ms | Allocations: 11688)
+  Rendered layout layouts/application.html.erb (Duration: 48.9ms | Allocations: 20941)
+Completed 200 OK in 58ms (Views: 44.8ms | ActiveRecord: 7.0ms | Allocations: 23033)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-29 17:50:00 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:92:in `set_group'
+  [1m[36mMembership Load (0.1ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/controllers/groups_controller.rb:38:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:18
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:3
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:10
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/groups/_group_posts.html.erb:10
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/groups/_group_posts.html.erb:10
+  Rendered groups/_group_posts.html.erb (Duration: 14.6ms | Allocations: 4056)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/groups/show.html.erb:54
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2 ORDER BY "memberships"."id" ASC LIMIT $3[0m  [["group_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  [1m[36mMembership Load (0.3ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  Rendered groups/show.html.erb within layouts/application (Duration: 31.0ms | Allocations: 11697)
+  Rendered layout layouts/application.html.erb (Duration: 43.1ms | Allocations: 19594)
+Completed 200 OK in 48ms (Views: 41.5ms | ActiveRecord: 3.2ms | Allocations: 21686)
+
+
+Started GET "/posts/1/edit" for ::1 at 2023-01-29 17:50:17 +0800
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:81:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 16.0ms | Allocations: 9718)
+  Rendered posts/edit.html.erb within layouts/application (Duration: 19.2ms | Allocations: 10181)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:18
+  Rendered layout layouts/application.html.erb (Duration: 38.2ms | Allocations: 18988)
+Completed 200 OK in 50ms (Views: 46.1ms | ActiveRecord: 0.9ms | Allocations: 20194)
+
+
+Started PATCH "/posts/1" for ::1 at 2023-01-29 17:50:38 +0800
+Processing by PostsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"Post 1", "content"=>"The current capital of Japan is Tokyo. In the course of history, the national capital has been in many locations other than Tokyo. Traditionally, the home of the Emperor is considered the capital. From 794 through 1868, the Emperor lived in Heian-kyō, modern-day Kyoto. The current capital of Japan is Tokyo. In the course of history, the national capital has been in many locations other than Tokyo. Traditionally, the home of the Emperor is considered the capital. From 794 through 1868, the Emperor lived in Heian-kyō, modern-day Kyoto."}, "commit"=>"Update Post", "id"=>"1"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:81:in `set_post'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:42:in `block in update'
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:42:in `block in update'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:42:in `block in update'
+  [1m[36mPost Update (0.5ms)[0m  [1m[33mUPDATE "posts" SET "content" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["content", "The current capital of Japan is Tokyo. In the course of history, the national capital has been in many locations other than Tokyo. Traditionally, the home of the Emperor is considered the capital. From 794 through 1868, the Emperor lived in Heian-kyō, modern-day Kyoto. The current capital of Japan is Tokyo. In the course of history, the national capital has been in many locations other than Tokyo. Traditionally, the home of the Emperor is considered the capital. From 794 through 1868, the Emperor lived in Heian-kyō, modern-day Kyoto."], ["updated_at", "2023-01-29 09:50:38.711197"], ["id", 1]]
+  ↳ app/controllers/posts_controller.rb:42:in `block in update'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:42:in `block in update'
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 15ms (ActiveRecord: 3.9ms | Allocations: 6673)
+
+
+Started GET "/posts/1" for ::1 at 2023-01-29 17:50:38 +0800
+Processing by PostsController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:81:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 0.7ms | Allocations: 171)
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/_comments.html.erb:2
+  Rendered posts/_comments.html.erb (Duration: 2.3ms | Allocations: 1083)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:24
+  Rendered posts/show.html.erb within layouts/application (Duration: 9.4ms | Allocations: 5698)
+  Rendered layout layouts/application.html.erb (Duration: 19.3ms | Allocations: 13325)
+Completed 200 OK in 24ms (Views: 19.3ms | ActiveRecord: 1.2ms | Allocations: 14367)
+
+
+Started GET "/posts/1/edit" for ::1 at 2023-01-29 17:50:39 +0800
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (2.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:81:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 13.0ms | Allocations: 2777)
+  Rendered posts/edit.html.erb within layouts/application (Duration: 14.0ms | Allocations: 2922)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:18
+  Rendered layout layouts/application.html.erb (Duration: 29.2ms | Allocations: 11116)
+Completed 200 OK in 38ms (Views: 29.8ms | ActiveRecord: 3.1ms | Allocations: 11896)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-29 17:50:41 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:92:in `set_group'
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/controllers/groups_controller.rb:38:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:18
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:3
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:10
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/groups/_group_posts.html.erb:10
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/groups/_group_posts.html.erb:10
+  Rendered groups/_group_posts.html.erb (Duration: 16.3ms | Allocations: 3645)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/groups/show.html.erb:54
+  [1m[36mMembership Load (0.7ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2 ORDER BY "memberships"."id" ASC LIMIT $3[0m  [["group_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  Rendered groups/show.html.erb within layouts/application (Duration: 40.8ms | Allocations: 10147)
+  Rendered layout layouts/application.html.erb (Duration: 49.1ms | Allocations: 17770)
+Completed 200 OK in 56ms (Views: 42.6ms | ActiveRecord: 8.3ms | Allocations: 19226)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-29 17:51:14 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.7ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:92:in `set_group'
+  [1m[36mMembership Load (0.5ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/controllers/groups_controller.rb:38:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:18
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:3
+  [1m[36mComment Load (1.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:9
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/groups/_group_posts.html.erb:9
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/groups/_group_posts.html.erb:9
+  Rendered groups/_group_posts.html.erb (Duration: 20.3ms | Allocations: 4054)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/groups/show.html.erb:54
+  [1m[36mMembership Load (0.6ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2 ORDER BY "memberships"."id" ASC LIMIT $3[0m  [["group_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  [1m[36mMembership Load (0.6ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  Rendered groups/show.html.erb within layouts/application (Duration: 42.9ms | Allocations: 11714)
+  Rendered layout layouts/application.html.erb (Duration: 62.3ms | Allocations: 19813)
+Completed 200 OK in 85ms (Views: 60.7ms | ActiveRecord: 5.5ms | Allocations: 21877)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-29 17:51:24 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:92:in `set_group'
+  [1m[36mMembership Load (10.1ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/controllers/groups_controller.rb:38:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:18
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:3
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:9
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/groups/_group_posts.html.erb:9
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/groups/_group_posts.html.erb:9
+  Rendered groups/_group_posts.html.erb (Duration: 16.2ms | Allocations: 4054)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/groups/show.html.erb:54
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2 ORDER BY "memberships"."id" ASC LIMIT $3[0m  [["group_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  [1m[36mMembership Load (0.2ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  Rendered groups/show.html.erb within layouts/application (Duration: 43.1ms | Allocations: 11701)
+  Rendered layout layouts/application.html.erb (Duration: 57.2ms | Allocations: 19799)
+Completed 200 OK in 77ms (Views: 58.2ms | ActiveRecord: 14.2ms | Allocations: 21892)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-29 17:51:43 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:92:in `set_group'
+  [1m[36mMembership Load (0.3ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/controllers/groups_controller.rb:38:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:18
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:3
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:9
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/groups/_group_posts.html.erb:9
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/groups/_group_posts.html.erb:9
+  Rendered groups/_group_posts.html.erb (Duration: 10.4ms | Allocations: 4054)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/groups/show.html.erb:54
+  [1m[36mMembership Load (0.1ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2 ORDER BY "memberships"."id" ASC LIMIT $3[0m  [["group_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  [1m[36mMembership Load (0.1ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  Rendered groups/show.html.erb within layouts/application (Duration: 27.8ms | Allocations: 11704)
+  Rendered layout layouts/application.html.erb (Duration: 44.1ms | Allocations: 19601)
+Completed 200 OK in 64ms (Views: 45.8ms | ActiveRecord: 3.3ms | Allocations: 21693)
+
+
+Started GET "/posts/1" for ::1 at 2023-01-29 17:52:03 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:81:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 1.1ms | Allocations: 178)
+  [1m[36mComment Load (1.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/_comments.html.erb:2
+  Rendered posts/_comments.html.erb (Duration: 5.8ms | Allocations: 1192)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:24
+  Rendered posts/show.html.erb within layouts/application (Duration: 29.8ms | Allocations: 6067)
+  Rendered layout layouts/application.html.erb (Duration: 42.0ms | Allocations: 13911)
+Completed 200 OK in 47ms (Views: 41.5ms | ActiveRecord: 2.8ms | Allocations: 15221)
+
+
+Started POST "/comments" for ::1 at 2023-01-29 17:52:09 +0800
+Processing by CommentsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "comment"=>{"remark"=>"I loke this", "post_id"=>"1", "group_id"=>"1", "user_id"=>"1"}, "commit"=>"Create Comment"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:27:in `block in create'
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:27:in `block in create'
+  [1m[36mComment Create (1.4ms)[0m  [1m[32mINSERT INTO "comments" ("remark", "created_at", "updated_at", "post_id", "group_id", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["remark", "I loke this"], ["created_at", "2023-01-29 09:52:09.417478"], ["updated_at", "2023-01-29 09:52:09.417478"], ["post_id", 1], ["group_id", 1], ["user_id", 1]]
+  ↳ app/controllers/comments_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/comments_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/comments/1
+Completed 302 Found in 15ms (ActiveRecord: 4.6ms | Allocations: 7047)
+
+
+Started GET "/comments/1" for ::1 at 2023-01-29 17:52:09 +0800
+Processing by CommentsController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:72:in `set_comment'
+  Rendering layout layouts/application.html.erb
+  Rendering comments/show.html.erb within layouts/application
+  Rendered comments/_comment.html.erb (Duration: 0.8ms | Allocations: 243)
+  Rendered comments/show.html.erb within layouts/application (Duration: 4.2ms | Allocations: 3172)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:18
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 11934)
+Completed 200 OK in 22ms (Views: 17.7ms | ActiveRecord: 0.9ms | Allocations: 13859)
+
+
+Started GET "/posts/1" for ::1 at 2023-01-29 17:52:10 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:81:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 0.1ms | Allocations: 21)
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/_comments.html.erb:2
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/_comments.html.erb:12
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/_comments.html.erb:19
+  [1m[36mReply Load (0.8ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."post_id" = $1 AND "replies"."comment_id" = $2[0m  [["post_id", 1], ["comment_id", 1]]
+  ↳ app/views/posts/_replies.html.erb:1
+  Rendered posts/_replies.html.erb (Duration: 7.3ms | Allocations: 962)
+  Rendered posts/_comments.html.erb (Duration: 34.9ms | Allocations: 7438)
+  Rendered posts/show.html.erb within layouts/application (Duration: 41.4ms | Allocations: 10438)
+  Rendered layout layouts/application.html.erb (Duration: 56.0ms | Allocations: 17884)
+Completed 200 OK in 63ms (Views: 53.1ms | ActiveRecord: 5.2ms | Allocations: 18784)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-29 17:52:10 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:92:in `set_group'
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/controllers/groups_controller.rb:38:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:18
+  [1m[36mPost Load (2.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:3
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:9
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."updated_at" ASC LIMIT $2[0m  [["post_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/groups/_group_posts.html.erb:9
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/groups/_group_posts.html.erb:9
+  Rendered groups/_group_posts.html.erb (Duration: 19.9ms | Allocations: 4454)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/groups/show.html.erb:54
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2 ORDER BY "memberships"."id" ASC LIMIT $3[0m  [["group_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  Rendered groups/show.html.erb within layouts/application (Duration: 54.7ms | Allocations: 10946)
+  Rendered layout layouts/application.html.erb (Duration: 69.3ms | Allocations: 18569)
+Completed 200 OK in 82ms (Views: 63.6ms | ActiveRecord: 7.5ms | Allocations: 20025)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-29 17:52:42 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (1.0ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:92:in `set_group'
+  [1m[36mMembership Load (0.3ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/controllers/groups_controller.rb:38:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:18
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:3
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:9
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."updated_at" ASC LIMIT $2[0m  [["post_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/groups/_group_posts.html.erb:9
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/groups/_group_posts.html.erb:9
+  Rendered groups/_group_posts.html.erb (Duration: 12.2ms | Allocations: 4881)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/groups/show.html.erb:54
+  [1m[36mMembership Load (0.6ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2 ORDER BY "memberships"."id" ASC LIMIT $3[0m  [["group_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  [1m[36mMembership Load (0.3ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  Rendered groups/show.html.erb within layouts/application (Duration: 30.5ms | Allocations: 12547)
+  Rendered layout layouts/application.html.erb (Duration: 44.5ms | Allocations: 20645)
+Completed 200 OK in 62ms (Views: 43.5ms | ActiveRecord: 5.6ms | Allocations: 22709)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-29 17:53:35 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:92:in `set_group'
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/controllers/groups_controller.rb:38:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:18
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:3
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."updated_at" ASC LIMIT $2[0m  [["post_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:13
+  [1m[36mComment Load (7.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  Rendered groups/_group_posts.html.erb (Duration: 23.0ms | Allocations: 4924)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/groups/show.html.erb:54
+  [1m[36mMembership Load (0.5ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2 ORDER BY "memberships"."id" ASC LIMIT $3[0m  [["group_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  Rendered groups/show.html.erb within layouts/application (Duration: 42.7ms | Allocations: 12580)
+  Rendered layout layouts/application.html.erb (Duration: 66.3ms | Allocations: 20678)
+Completed 200 OK in 89ms (Views: 59.7ms | ActiveRecord: 11.9ms | Allocations: 22771)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-29 17:54:23 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:92:in `set_group'
+  [1m[36mMembership Load (0.1ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/controllers/groups_controller.rb:38:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:18
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:3
+  [1m[36mComment Load (6.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (1.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."updated_at" ASC LIMIT $2[0m  [["post_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:13
+  [1m[36mComment Load (1.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  Rendered groups/_group_posts.html.erb (Duration: 27.4ms | Allocations: 4950)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/groups/show.html.erb:54
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2 ORDER BY "memberships"."id" ASC LIMIT $3[0m  [["group_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  [1m[36mMembership Load (1.2ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  Rendered groups/show.html.erb within layouts/application (Duration: 49.4ms | Allocations: 12588)
+  Rendered layout layouts/application.html.erb (Duration: 72.0ms | Allocations: 20680)
+Completed 200 OK in 81ms (Views: 63.9ms | ActiveRecord: 13.6ms | Allocations: 22773)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-29 17:54:34 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:92:in `set_group'
+  [1m[36mMembership Load (1.2ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/controllers/groups_controller.rb:38:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:18
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:3
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."updated_at" ASC LIMIT $2[0m  [["post_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:13
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  Rendered groups/_group_posts.html.erb (Duration: 12.8ms | Allocations: 4948)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/groups/show.html.erb:54
+  [1m[36mMembership Load (0.3ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2 ORDER BY "memberships"."id" ASC LIMIT $3[0m  [["group_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  [1m[36mMembership Load (0.3ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  Rendered groups/show.html.erb within layouts/application (Duration: 35.6ms | Allocations: 12603)
+  Rendered layout layouts/application.html.erb (Duration: 47.2ms | Allocations: 20703)
+Completed 200 OK in 64ms (Views: 46.6ms | ActiveRecord: 5.1ms | Allocations: 22796)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-29 17:55:05 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:92:in `set_group'
+  [1m[36mMembership Load (0.1ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/controllers/groups_controller.rb:38:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:18
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:3
+  [1m[36mComment Load (6.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."updated_at" ASC LIMIT $2[0m  [["post_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:13
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  Rendered groups/_group_posts.html.erb (Duration: 24.9ms | Allocations: 4949)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/groups/show.html.erb:54
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2 ORDER BY "memberships"."id" ASC LIMIT $3[0m  [["group_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  Rendered groups/show.html.erb within layouts/application (Duration: 52.5ms | Allocations: 12611)
+  Rendered layout layouts/application.html.erb (Duration: 78.9ms | Allocations: 20708)
+Completed 200 OK in 86ms (Views: 71.3ms | ActiveRecord: 11.0ms | Allocations: 22800)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-29 17:55:13 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:92:in `set_group'
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/controllers/groups_controller.rb:38:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:18
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:3
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."updated_at" ASC LIMIT $2[0m  [["post_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:13
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  Rendered groups/_group_posts.html.erb (Duration: 19.7ms | Allocations: 4948)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/groups/show.html.erb:54
+  [1m[36mMembership Load (0.5ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2 ORDER BY "memberships"."id" ASC LIMIT $3[0m  [["group_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  [1m[36mMembership Load (0.3ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  Rendered groups/show.html.erb within layouts/application (Duration: 34.6ms | Allocations: 12592)
+  Rendered layout layouts/application.html.erb (Duration: 45.4ms | Allocations: 20691)
+Completed 200 OK in 54ms (Views: 42.3ms | ActiveRecord: 6.0ms | Allocations: 22784)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-29 17:55:43 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:92:in `set_group'
+  [1m[36mMembership Load (0.5ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/controllers/groups_controller.rb:38:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mUser Load (8.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:18
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:3
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."updated_at" ASC LIMIT $2[0m  [["post_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:13
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  Rendered groups/_group_posts.html.erb (Duration: 12.8ms | Allocations: 4948)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/groups/show.html.erb:54
+  [1m[36mMembership Load (0.1ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2 ORDER BY "memberships"."id" ASC LIMIT $3[0m  [["group_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  [1m[36mMembership Load (0.1ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  Rendered groups/show.html.erb within layouts/application (Duration: 38.4ms | Allocations: 12607)
+  Rendered layout layouts/application.html.erb (Duration: 52.7ms | Allocations: 20704)
+Completed 200 OK in 62ms (Views: 44.7ms | ActiveRecord: 12.2ms | Allocations: 22797)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-29 17:55:59 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:92:in `set_group'
+  [1m[36mMembership Load (0.1ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/controllers/groups_controller.rb:38:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:18
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:3
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."updated_at" ASC LIMIT $2[0m  [["post_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:13
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  Rendered groups/_group_posts.html.erb (Duration: 15.3ms | Allocations: 4951)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/groups/show.html.erb:54
+  [1m[36mMembership Load (0.1ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2 ORDER BY "memberships"."id" ASC LIMIT $3[0m  [["group_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  [1m[36mMembership Load (0.1ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  Rendered groups/show.html.erb within layouts/application (Duration: 32.2ms | Allocations: 12628)
+  Rendered layout layouts/application.html.erb (Duration: 51.8ms | Allocations: 20722)
+Completed 200 OK in 57ms (Views: 50.3ms | ActiveRecord: 3.4ms | Allocations: 22815)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-29 17:56:15 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:92:in `set_group'
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/controllers/groups_controller.rb:38:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:18
+  [1m[36mPost Load (7.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:3
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."updated_at" ASC LIMIT $2[0m  [["post_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:13
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  Rendered groups/_group_posts.html.erb (Duration: 34.7ms | Allocations: 4949)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/groups/show.html.erb:54
+  [1m[36mMembership Load (0.6ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2 ORDER BY "memberships"."id" ASC LIMIT $3[0m  [["group_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  Rendered groups/show.html.erb within layouts/application (Duration: 56.5ms | Allocations: 12602)
+  Rendered layout layouts/application.html.erb (Duration: 67.6ms | Allocations: 20701)
+Completed 200 OK in 87ms (Views: 65.3ms | ActiveRecord: 13.1ms | Allocations: 22794)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-29 17:56:20 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:92:in `set_group'
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/controllers/groups_controller.rb:38:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:18
+  [1m[36mPost Load (1.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:3
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (8.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."updated_at" ASC LIMIT $2[0m  [["post_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:13
+  [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  Rendered groups/_group_posts.html.erb (Duration: 26.9ms | Allocations: 4949)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/groups/show.html.erb:54
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2 ORDER BY "memberships"."id" ASC LIMIT $3[0m  [["group_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  Rendered groups/show.html.erb within layouts/application (Duration: 45.5ms | Allocations: 12597)
+  Rendered layout layouts/application.html.erb (Duration: 55.1ms | Allocations: 20669)
+Completed 200 OK in 74ms (Views: 46.3ms | ActiveRecord: 14.9ms | Allocations: 22761)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-29 17:56:39 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:92:in `set_group'
+  [1m[36mMembership Load (0.6ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/controllers/groups_controller.rb:38:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:18
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:3
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."updated_at" ASC LIMIT $2[0m  [["post_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:13
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (6.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  Rendered groups/_group_posts.html.erb (Duration: 28.1ms | Allocations: 4969)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/groups/show.html.erb:54
+  [1m[36mMembership Load (0.5ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2 ORDER BY "memberships"."id" ASC LIMIT $3[0m  [["group_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  Rendered groups/show.html.erb within layouts/application (Duration: 53.6ms | Allocations: 12625)
+  Rendered layout layouts/application.html.erb (Duration: 63.7ms | Allocations: 20624)
+Completed 200 OK in 75ms (Views: 57.3ms | ActiveRecord: 12.3ms | Allocations: 22717)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-29 17:56:58 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:92:in `set_group'
+  [1m[36mMembership Load (0.1ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/controllers/groups_controller.rb:38:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:18
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:3
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."updated_at" ASC LIMIT $2[0m  [["post_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:13
+  [1m[36mComment Load (2.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (6.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  Rendered groups/_group_posts.html.erb (Duration: 21.6ms | Allocations: 4970)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/groups/show.html.erb:54
+  [1m[36mMembership Load (0.6ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2 ORDER BY "memberships"."id" ASC LIMIT $3[0m  [["group_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  Rendered groups/show.html.erb within layouts/application (Duration: 46.2ms | Allocations: 12612)
+  Rendered layout layouts/application.html.erb (Duration: 56.2ms | Allocations: 20678)
+Completed 200 OK in 61ms (Views: 47.2ms | ActiveRecord: 11.3ms | Allocations: 22771)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-29 17:57:04 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:92:in `set_group'
+  [1m[36mMembership Load (0.3ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/controllers/groups_controller.rb:38:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:18
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:3
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."updated_at" ASC LIMIT $2[0m  [["post_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:13
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  Rendered groups/_group_posts.html.erb (Duration: 22.0ms | Allocations: 4965)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/groups/show.html.erb:54
+  [1m[36mMembership Load (0.1ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2 ORDER BY "memberships"."id" ASC LIMIT $3[0m  [["group_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  [1m[36mMembership Load (0.1ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  Rendered groups/show.html.erb within layouts/application (Duration: 36.1ms | Allocations: 12624)
+  Rendered layout layouts/application.html.erb (Duration: 56.7ms | Allocations: 20726)
+Completed 200 OK in 64ms (Views: 54.7ms | ActiveRecord: 5.3ms | Allocations: 22819)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-29 17:57:31 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (9.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:92:in `set_group'
+  [1m[36mMembership Load (1.0ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/controllers/groups_controller.rb:38:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:18
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:3
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."updated_at" ASC LIMIT $2[0m  [["post_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:13
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  Rendered groups/_group_posts.html.erb (Duration: 12.3ms | Allocations: 4967)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/groups/show.html.erb:54
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2 ORDER BY "memberships"."id" ASC LIMIT $3[0m  [["group_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  Rendered groups/show.html.erb within layouts/application (Duration: 28.9ms | Allocations: 12619)
+  Rendered layout layouts/application.html.erb (Duration: 42.6ms | Allocations: 21990)
+Completed 200 OK in 71ms (Views: 49.1ms | ActiveRecord: 14.5ms | Allocations: 24083)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-29 17:57:41 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:92:in `set_group'
+  [1m[36mMembership Load (0.6ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/controllers/groups_controller.rb:38:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:18
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:3
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."updated_at" ASC LIMIT $2[0m  [["post_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:13
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  Rendered groups/_group_posts.html.erb (Duration: 19.4ms | Allocations: 4966)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/groups/show.html.erb:54
+  [1m[36mMembership Load (0.5ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2 ORDER BY "memberships"."id" ASC LIMIT $3[0m  [["group_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  Rendered groups/show.html.erb within layouts/application (Duration: 48.3ms | Allocations: 12617)
+  Rendered layout layouts/application.html.erb (Duration: 62.1ms | Allocations: 20690)
+Completed 200 OK in 79ms (Views: 60.3ms | ActiveRecord: 5.4ms | Allocations: 22782)
+
+
+Started GET "/groups/1" for ::1 at 2023-01-29 17:58:29 +0800
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:92:in `set_group'
+  [1m[36mMembership Load (0.1ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/controllers/groups_controller.rb:38:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:18
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:3
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."updated_at" ASC LIMIT $2[0m  [["post_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/_group_posts.html.erb:13
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/groups/_group_posts.html.erb:11
+  Rendered groups/_group_posts.html.erb (Duration: 17.2ms | Allocations: 4966)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/groups/show.html.erb:54
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2 ORDER BY "memberships"."id" ASC LIMIT $3[0m  [["group_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/show.html.erb:58
+  Rendered groups/show.html.erb within layouts/application (Duration: 36.4ms | Allocations: 12619)
+  Rendered layout layouts/application.html.erb (Duration: 49.7ms | Allocations: 20621)
+Completed 200 OK in 55ms (Views: 46.5ms | ActiveRecord: 5.4ms | Allocations: 22714)
+
+
