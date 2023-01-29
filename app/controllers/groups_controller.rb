@@ -33,9 +33,9 @@ class GroupsController < ApplicationController
   def show
     @posts = Post.where(group_id: @group.id)
 
-    query = Membership.where(group_id: @group.id)
+    @query = Membership.where(group_id: @group.id)
     list = []
-    query.each { |q| list.push(q.user_id) }
+    @query.each { |q| list.push(q.user_id) }
     @members = User.where(id: list)
   end
 
