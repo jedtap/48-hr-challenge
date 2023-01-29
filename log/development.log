@@ -25937,3 +25937,40 @@ Processing by GroupsController#index as HTML
 Completed 200 OK in 26ms (Views: 25.3ms | ActiveRecord: 0.5ms | Allocations: 15286)
 
 
+Started GET "/" for ::1 at 2023-01-29 16:18:02 +0800
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:32
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 13)
+  Rendered groups/index.html.erb within layouts/application (Duration: 9.2ms | Allocations: 4356)
+  Rendered layout layouts/application.html.erb (Duration: 30.2ms | Allocations: 15615)
+Completed 200 OK in 33ms (Views: 31.6ms | ActiveRecord: 0.5ms | Allocations: 15918)
+
+
+Started POST "/groups/filter" for ::1 at 2023-01-29 16:18:07 +0800
+Processing by GroupsController#filter as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "filter"=>"joined", "commit"=>"Where I am member"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:10:in `filter'
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/groups_controller.rb:12:in `filter'
+  Rendered groups/_filter_results.html.erb (Duration: 1.0ms | Allocations: 329)
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 3960)
+
+
+Started GET "/" for ::1 at 2023-01-29 16:18:25 +0800
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:32
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 13)
+  Rendered groups/index.html.erb within layouts/application (Duration: 17.3ms | Allocations: 4356)
+  Rendered layout layouts/application.html.erb (Duration: 38.9ms | Allocations: 15689)
+Completed 200 OK in 40ms (Views: 39.5ms | ActiveRecord: 0.5ms | Allocations: 15972)
+
+

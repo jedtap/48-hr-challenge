@@ -11,3 +11,8 @@
 }
 
 */
+
+a:hover, input:hover {
+  color: rgb(30, 30, 160);
+  cursor: pointer;
+}
