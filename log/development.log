@@ -25731,3 +25731,144 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 24ms (Views: 23.1ms | ActiveRecord: 0.0ms | Allocations: 9810)
 
 
+Started GET "/users/sign_up" for ::1 at 2023-01-29 16:12:24 +0800
+Processing by Users::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 89)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1481)
+  Rendered layout layouts/application.html.erb (Duration: 35.0ms | Allocations: 8850)
+Completed 200 OK in 39ms (Views: 36.4ms | ActiveRecord: 0.0ms | Allocations: 11222)
+
+
+Started POST "/users" for ::1 at 2023-01-29 16:12:31 +0800
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"Jed", "email"=>"a@a", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a@a"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.8ms | Allocations: 540)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 90)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 6.6ms | Allocations: 2699)
+  Rendered layout layouts/application.html.erb (Duration: 15.2ms | Allocations: 10145)
+Completed 200 OK in 301ms (Views: 16.0ms | ActiveRecord: 2.7ms | Allocations: 22915)
+
+
+Started POST "/users" for ::1 at 2023-01-29 16:12:39 +0800
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"Jed", "email"=>"a@a", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a@a"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "a@a"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2023-01-29 08:12:39.593078"], ["updated_at", "2023-01-29 08:12:39.593078"], ["name", "Jed"]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 265ms (ActiveRecord: 6.1ms | Allocations: 9019)
+
+
+Started GET "/" for ::1 at 2023-01-29 16:12:39 +0800
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.9ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:32
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 30)
+  Rendered groups/index.html.erb within layouts/application (Duration: 44.5ms | Allocations: 9053)
+  Rendered layout layouts/application.html.erb (Duration: 59.6ms | Allocations: 17481)
+Completed 200 OK in 71ms (Views: 55.7ms | ActiveRecord: 6.2ms | Allocations: 19950)
+
+
+Started GET "/" for ::1 at 2023-01-29 16:12:50 +0800
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:32
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 17)
+  Rendered groups/index.html.erb within layouts/application (Duration: 9.2ms | Allocations: 4465)
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | Allocations: 12136)
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.5ms | Allocations: 12459)
+
+
+Started GET "/" for ::1 at 2023-01-29 16:13:27 +0800
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.6ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:32
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 17)
+  Rendered groups/index.html.erb within layouts/application (Duration: 24.2ms | Allocations: 4959)
+  Rendered layout layouts/application.html.erb (Duration: 46.4ms | Allocations: 13125)
+Completed 200 OK in 50ms (Views: 48.6ms | ActiveRecord: 0.6ms | Allocations: 14053)
+
+
+Started GET "/users/sign_out" for ::1 at 2023-01-29 16:13:29 +0800
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 17ms (ActiveRecord: 0.2ms | Allocations: 8772)
+
+
+Started GET "/" for ::1 at 2023-01-29 16:13:29 +0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 574)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 2036)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 9519)
+Completed 200 OK in 17ms (Views: 16.8ms | ActiveRecord: 0.0ms | Allocations: 10487)
+
+
+Started GET "/" for ::1 at 2023-01-29 16:13:48 +0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.1ms | Allocations: 574)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2028)
+  Rendered layout layouts/application.html.erb (Duration: 22.7ms | Allocations: 9836)
+Completed 200 OK in 26ms (Views: 25.7ms | ActiveRecord: 0.0ms | Allocations: 10992)
+
+
+Started POST "/users/sign_in" for ::1 at 2023-01-29 16:13:52 +0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"a@a", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "a@a"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 249ms (ActiveRecord: 0.8ms | Allocations: 4900)
+
+
+Started GET "/" for ::1 at 2023-01-29 16:13:52 +0800
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:32
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 17)
+  Rendered groups/index.html.erb within layouts/application (Duration: 10.1ms | Allocations: 4963)
+  Rendered layout layouts/application.html.erb (Duration: 19.1ms | Allocations: 12806)
+Completed 200 OK in 23ms (Views: 20.8ms | ActiveRecord: 0.5ms | Allocations: 13534)
+
+
+Started GET "/users/sign_out" for ::1 at 2023-01-29 16:13:58 +0800
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 15ms (ActiveRecord: 0.7ms | Allocations: 3620)
+
+
+Started GET "/" for ::1 at 2023-01-29 16:13:59 +0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 153)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1015)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 8348)
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 8800)
+
+
