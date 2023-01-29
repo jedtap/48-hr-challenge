@@ -16,15 +16,19 @@
             <% end %>
 
             <%# Edit link %>
-            <%= link_to 'Edit', edit_post_path(post) %>  •      
+            <% if current_user.id == post.user_id %>
+                <%= link_to 'Edit', edit_post_path(post) %>  •      
+            <% end %>
 
             <%# Delete link %>
-            <div class="flex gap-3">
-                <%= form_with(model: post, method: :delete) do |form| %>
-                    <%= form.submit "Delete" %>
-                <% end %>
-                <span> • </span>
-            </div>
+            <% if current_user.id == post.user_id || current_user.id == @group.user_id %>
+                <div class="flex gap-3">
+                    <%= form_with(model: post, method: :delete) do |form| %>
+                        <%= form.submit "Delete" %>
+                    <% end %>
+                    <span> • </span>
+                </div>
+            <% end %>
 
             <%# Created by %>
             Created by 

@@ -15,13 +15,15 @@
         commented <%= time_ago_in_words(Comment.where(id: comment.id).last.updated_at) %> ago   • 
 
         <%# Delete button %>
-        <div class="flex gap-3">
-          <span> </span>
-          <%= form_with(model: comment, method: :delete) do |form| %>
-            <%= form.submit "Delete" %>
-          <% end %>
-          <span> • </span>
-        </div>
+        <% if current_user.id == comment.user_id || current_user.id == @group.user_id %>
+          <div class="flex gap-3">
+            <span> </span>
+            <%= form_with(model: comment, method: :delete) do |form| %>
+              <%= form.submit "Delete" %>
+            <% end %>
+            <span> • </span>
+          </div>
+        <% end %>
 
         <%# Reply toggle %>
         <div class="flex gap-3">

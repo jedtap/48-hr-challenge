@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   def show
     @comments = Comment.where(post_id: @post.id)
     @replies = Reply.where(post_id: @post.id )
+    @group = Group.where(id: @post.group_id).first
   end
 
   # GET /posts/new
