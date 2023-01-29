@@ -7,13 +7,5 @@
     <% else %>
     <%= User.where(id: reply.user_id).first.name %>
     <% end %>
-    replied <%= time_ago_in_words(Reply.where(id: reply.id).last.updated_at) %> ago • 
-
-    <%# Delete Link %>
-    <div class="flex gap-3">
-    <span> </span>
-    <%= form_with(model: reply, method: :delete) do |form| %>
-        <%= form.submit "Delete" %>
-    <% end %>
-    </div>
+    replied <%= time_ago_in_words(Reply.where(id: reply.id).last.updated_at) %> ago
 </div>

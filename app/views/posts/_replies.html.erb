@@ -1,4 +1,5 @@
 <% @replies.where(comment_id: comment_id).each do |reply| %>
+  <div id="reply-<%= reply.id %>">
     <br/> <%= reply.feedback %> <br/>
     <div class="flex gap-3 text-slate-500"">
 
@@ -26,4 +27,5 @@
       </div>
 
     </div>
+  </div>
 <% end %>

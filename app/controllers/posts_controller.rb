@@ -52,6 +52,8 @@ class PostsController < ApplicationController
   # DELETE /posts/1 or /posts/1.json
   def destroy
 
+    id = @post.id
+
     replies = Reply.where(post_id: @post.id)
     if replies.count > 0
       replies.each do |reply|
@@ -70,7 +72,11 @@ class PostsController < ApplicationController
     @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
+      format.turbo_stream do
+        render turbo_stream: [
+          turbo_stream.remove("post-#{id}")
+        ]
+      end
       format.json { head :no_content }
     end
   end

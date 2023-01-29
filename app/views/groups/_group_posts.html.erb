@@ -1,40 +1,41 @@
 <h2 class="text-3xl font-semibold mb-7"> All Posts </h2>
 
 <% @posts.each do |post| %>
+    <div id="post-<%= post.id %>">
 
-    <h3 class="text-lg font-semibold"> <%= post.title %> </h3> <br/>
-    <%= post.content %> <br/>
+        <h3 class="text-lg font-semibold"> <%= post.title %> </h3> <br/>
+        <%= post.content %> <br/>
 
-    <%# Statistics about the post %>
-    <div class="flex gap-3 mt-3 text-slate-500">
-        <%# Time of Last comment  %>
-        <% if Comment.where(post_id: post.id).present? %>
-            Last comment 
-            <%= time_ago_in_words(Comment.where(post_id: post.id).order(updated_at: :desc).last.updated_at) %>
-             ago  •  
-        <% end %>
-
-        <%# Edit link %>
-        <%= link_to 'Edit', edit_post_path(post) %>  •      
-
-        <%# Delete link %>
-        <div class="flex gap-3">
-            <%= form_with(model: post, method: :delete) do |form| %>
-                <%= form.submit "Delete" %>
+        <%# Statistics about the post %>
+        <div class="flex gap-3 mt-3 text-slate-500">
+            <%# Time of Last comment  %>
+            <% if Comment.where(post_id: post.id).present? %>
+                Last comment 
+                <%= time_ago_in_words(Comment.where(post_id: post.id).order(updated_at: :desc).last.updated_at) %>
+                ago  •  
             <% end %>
-            <span> • </span>
+
+            <%# Edit link %>
+            <%= link_to 'Edit', edit_post_path(post) %>  •      
+
+            <%# Delete link %>
+            <div class="flex gap-3">
+                <%= form_with(model: post, method: :delete) do |form| %>
+                    <%= form.submit "Delete" %>
+                <% end %>
+                <span> • </span>
+            </div>
+
+            <%# Created by %>
+            Created by 
+            <% if current_user.id == post.user_id %>
+                You
+            <% else %>
+                <%= User.where(id: post.user_id).first.name %>
+            <% end %>
+
         </div>
-
-        <%# Created by %>
-        Created by 
-        <% if current_user.id == post.user_id %>
-            You
-        <% else %>
-            <%= User.where(id: post.user_id).first.name %>
-        <% end %>
-
+        <%= link_to "View post ->", post %>
     </div>
-    <%= link_to "View post ->", post %>
-    
     <br/> <br/> <br/>
 <% end %>

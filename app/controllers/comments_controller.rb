@@ -54,6 +54,8 @@ class CommentsController < ApplicationController
   # DELETE /comments/1 or /comments/1.json
   def destroy
 
+    id = @comment.id
+
     replies = Reply.where(comment_id: @comment.id)
 
     if replies.count > 0
@@ -65,7 +67,13 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: "Comment was successfully destroyed." }
+
+      format.turbo_stream do
+        render turbo_stream: [
+          turbo_stream.remove("comment-#{id}")
+        ]
+      end
+
       format.json { head :no_content }
     end
   end
