@@ -3,28 +3,29 @@
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <h1 class="font-bold text-4xl">Groups</h1>
-
-  <br/>
+  <h1 class="font-bold text-4xl">Groups</h1> <br/>
 
   <div class="flex justify-between items-center">
+
     <%# Filters for the group %>
     <div class="border-2 border-gray-600 flex px-4 py-2 w-fit rounded-lg gap-2">
       <%= render(FilterComponent.new()) %>
     </div>
 
+    <%# Modal Elements %>
     <div data-controller="modal">
-      <button data-action="click->modal#toggle" class="rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium">
+
+      <%# Button to trigger modal %>
+      <button data-action="click->modal#toggle" class="rounded-lg py-3 px-5 bg-green-500 text-white block font-medium">
         New Group
       </button>
 
-      <%# Modal %>
+      <%# Modal itself %>
       <div data-modal-target="modalArea" hidden>
-        <%= render(ModalComponent.new('Create', current_user.id, Group.new() )) %>
+        <%= render(ModalComponent.new('Create', current_user.id, Group.new(), 'Create' )) %>
       </div>
-
-      <%# link_to 'New group', new_group_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
     </div>
+
   </div>
 
   <%# Group detail %>

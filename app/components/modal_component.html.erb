@@ -1,20 +1,16 @@
 <div class="bg-black/50 fixed top-0 left-0 w-full h-full flex justify-center align-middle">
-    <div class="w-1/2 m-auto bg-white rounded-xl p-32">
-        <h2> <%= @title %> Group</h2>
+    <div class="w-2/3 m-auto bg-white rounded-xl p-20">
+        <h2 class="text-2xl"> <%= @title %> Group</h2>
         <%= form_with(model: @group) do |form| %>
             <%= form.number_field :user_id, value: @user_id, type: :hidden %>
-
             <div class="flex gap-5 p-5">
                 <div>
-                    <%= form.label :name %>
-                    <p>People will see this name before joining your group</p>
+                    <h3 class="text-lg"> <%= form.label :name, "Group name" %> </h3>
+                    <p class="italic text-sm"> People will see this name before joining your group </p>
                 </div>
                 <%= form.text_field :name, placeholder: "Group name", class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
             </div>
-
-            <div class="inline">
-                <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
-            </div>
+            <%= form.submit @label, class: "rounded-lg py-3 px-5 bg-green-500 text-white inline-block font-medium cursor-pointer" %>
         <% end %>
     </div>
 </div>
