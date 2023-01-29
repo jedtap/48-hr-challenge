@@ -3,7 +3,17 @@
     <%= reply.feedback %>
     <br/>
     <div>
-        Name replied 3 days ago • <span data-action="click->replies#toggle"> Reply </span>
+        Name replied 3 days ago • 
+        
+        
+            <span>        
+                <%= form_with(model: reply, method: :delete) do |form| %>
+                    <%= form.submit "Delete" %>
+                <% end %>
+            </span>
+        
+        
+         • <span data-action="click->replies#toggle"> Reply </span>
     </div>
 
 <% end %>
