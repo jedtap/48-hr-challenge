@@ -32,6 +32,11 @@ class GroupsController < ApplicationController
   # GET /groups/1 or /groups/1.json
   def show
     @posts = Post.where(group_id: @group.id)
+
+    query = Membership.where(group_id: @group.id)
+    list = []
+    query.each { |q| list.push(q.user_id) }
+    @members = User.where(id: list)
   end
 
   # GET /groups/new

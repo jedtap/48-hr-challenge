@@ -1,49 +1,63 @@
-<div class="mx-auto md:w-2/3 w-full flex flex-col">
-  <div>
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-    <% end %>
 
-    <div data-controller="modal">
-      <%= @group.name %>
-      <span data-action="click->modal#toggle"> <i class="fa-solid fa-gear"></i> </span>
+<div class="w-max flex">
+  <div class="mx-auto md:w-2/3 w-full flex flex-col">
+    <div>
+      <% if notice.present? %>
+        <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+      <% end %>
 
-      <%# Modal %>
-      <div data-modal-target="modalArea" hidden>
-        <%= render(ModalComponent.new('Edit', current_user.id, @group )) %>
+      <div data-controller="modal">
+        <%= @group.name %>
+        <span data-action="click->modal#toggle"> <i class="fa-solid fa-gear"></i> </span>
+
+        <%# Modal %>
+        <div data-modal-target="modalArea" hidden>
+          <%= render(ModalComponent.new('Edit', current_user.id, @group )) %>
+        </div>
       </div>
+
+      <div class="inline-block ml-2">
+        <%# button_to 'Destroy this group', group_path(@group), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+      </div>
+      <%# link_to 'Back to groups', groups_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     </div>
 
-    <div class="inline-block ml-2">
-      <%# button_to 'Destroy this group', group_path(@group), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+
+    <%# New Post %>
+    <div>
+      <%= form_with(model: Post.new()) do |form| %>
+
+        <div class="my-5">
+          <%= form.text_field :title, placeholder: "What's the title of this post?", class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+        </div>
+
+        <div class="my-5">
+          <%= form.text_area :content, rows: 4, placeholder: "Write your post...", class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+        </div>
+
+          <%= form.number_field :user_id, value: current_user.id, type: :hidden %>
+          <%= form.number_field :group_id, value: @group.id, type: :hidden %>
+
+        <div class="flex justify-end">
+          <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+        </div>
+      <% end %>
     </div>
-    <%# link_to 'Back to groups', groups_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+
+    <%# View all posts %>
+    <div>
+      <%= render "group_posts" %>
+    </div>
   </div>
 
 
-  <%# New Post %>
   <div>
-    <%= form_with(model: Post.new()) do |form| %>
-
-      <div class="my-5">
-        <%= form.text_field :title, placeholder: "What's the title of this post?", class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-      </div>
-
-      <div class="my-5">
-        <%= form.text_area :content, rows: 4, placeholder: "Write your post...", class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-      </div>
-
-        <%= form.number_field :user_id, value: current_user.id, type: :hidden %>
-        <%= form.number_field :group_id, value: @group.id, type: :hidden %>
-
-      <div class="flex justify-end">
-        <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
-      </div>
-    <% end %>
+    <h2> Members </h2>
+    <div>
+      <% @members.each do |member|%>
+        <p><%= member.email %></p>
+      <% end %>
+    </div>
   </div>
 
-  <%# View all posts %>
-  <div>
-    <%= render "group_posts" %>
-  </div>
 </div>
