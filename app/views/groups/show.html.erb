@@ -1,28 +1,27 @@
-<div class="w-max flex">
-  <div class="mx-auto md:w-2/3 w-full flex flex-col">
+<div class="flex gap-5">
+  
+  <%# Start of left column %>
+  <div class="mx-auto w-10/12 flex flex-col">
+    
+    <%# Top row %>
     <div>
       <% if notice.present? %>
         <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
       <% end %>
 
-      <div data-controller="modal">
-        <%= @group.name %>
-        <span data-action="click->modal#toggle"> <i class="fa-solid fa-gear"></i> </span>
+      <div data-controller="modal" class="flex gap-7">
+        <h1 class="text-3xl font-bold"><%= @group.name %></h1>
+        <div data-action="click->modal#toggle"> <i class="fa-solid fa-gear text-3xl text-slate-500"></i> </div>
 
         <%# Modal %>
         <div data-modal-target="modalArea" hidden>
           <%= render(ModalComponent.new('Edit', current_user.id, @group, 'Save' )) %>
         </div>
       </div>
-
-      <div class="inline-block ml-2">
-        <%# button_to 'Destroy this group', group_path(@group), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
-      </div>
-      <%# link_to 'Back to groups', groups_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     </div>
 
 
-    <%# New Post %>
+    <%# Form to create new Post %>
     <div>
       <%= form_with(model: Post.new()) do |form| %>
 
@@ -34,43 +33,38 @@
           <%= form.text_area :content, rows: 4, placeholder: "Write your post...", class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
         </div>
 
-          <%= form.number_field :user_id, value: current_user.id, type: :hidden %>
-          <%= form.number_field :group_id, value: @group.id, type: :hidden %>
+        <%= form.number_field :user_id, value: current_user.id, type: :hidden %>
+        <%= form.number_field :group_id, value: @group.id, type: :hidden %>
 
         <div class="flex justify-end">
-          <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+          <%= form.submit class: "rounded-lg py-3 px-5 bg-green-500 text-white inline-block font-medium cursor-pointer" %>
         </div>
       <% end %>
     </div>
 
     <%# View all posts %>
-    <div>
-      <%= render "group_posts" %>
-    </div>
+    <div> <%= render "group_posts" %> </div>
   </div>
 
-
-  <div>
-    <h2> Members </h2>
-    <div>
-      <% @members.each do |member|%>
-        <p>
-          <%= member.name %>
-
+  <%# Start of Members column %>
+  <div class="w-2/12">
+    <h2 class="text-lg font-semibold mb-3"> Members </h2>
+    
+    <%# Generate name and delete button for each member %>
+    <% @members.each do |member|%>
+      <div class="flex justify-between pr-5 py-3">
+        <p> <%= member.name %> </p>
+        <div>
           <%= form_with(model: Membership.find(@query.where(user_id: member.id).first.id), method: :delete) do |form| %>
-            
             <div data-controller="membership">
               <i class="fa-solid fa-xmark" data-action="click->membership#delete"></i>
               <%= form.submit hidden: true, data: { membership_target: "submit" } %>
             </div>
-
           <% end %>
+        </div>
+      </div>
+    <% end %>
 
-
-
-        </p>
-      <% end %>
-    </div>
   </div>
-
+  
 </div>
