@@ -4,8 +4,10 @@
     <%= post.content %>
     <br/>
     <div>
-        Last comment 3 days ago • Edit • 
+        Last comment 3 days ago
         
+        • <%= link_to 'Edit', edit_post_path(post) %>
+        •         
         <span>
             <%= form_with(model: post, method: :delete) do |form| %>
                 <%= form.submit "Delete" %>
