@@ -25319,3 +25319,141 @@ Processing by PostsController#show as HTML
 Completed 200 OK in 66ms (Views: 53.5ms | ActiveRecord: 10.4ms | Allocations: 23502)
 
 
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (3.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (58.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "simplero_take_home_test_rails_development"[0m
+  [1m[35m (42.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "simplero_take_home_test_rails_test"[0m
+  [1m[35m (287.2ms)[0m  [1m[35mCREATE DATABASE "simplero_take_home_test_rails_development" ENCODING = 'unicode'[0m
+  [1m[35m (57.9ms)[0m  [1m[35mCREATE DATABASE "simplero_take_home_test_rails_test" ENCODING = 'unicode'[0m
+  [1m[35m (24.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (17.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8183932473577995435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGroups (20230128024305)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.2ms)[0m  [1m[35mCREATE TABLE "groups" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230128024305"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePosts (20230128024421)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying, "content" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230128024421"]]
+  [1m[36mTRANSACTION (6.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateComments (20230128024527)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.3ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "remark" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (2.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230128024527"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddGroupIdToPosts (20230128025550)
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "posts" ADD "group_id" integer[0m
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE INDEX "index_posts_on_group_id" ON "posts" ("group_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230128025550"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPostIdToComments (20230128025745)
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "comments" ADD "post_id" integer[0m
+  [1m[35m (11.2ms)[0m  [1m[35mCREATE INDEX "index_comments_on_post_id" ON "comments" ("post_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230128025745"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to DeviseCreateUsers (20230128041209)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230128041209"]]
+  [1m[36mTRANSACTION (8.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUserIdToGroups (20230128070646)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "groups" ADD "user_id" integer[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE INDEX "index_groups_on_user_id" ON "groups" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230128070646"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMemberships (20230128085244)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "memberships" ("id" bigserial primary key, "group_id" integer, "user_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE INDEX "index_memberships_on_user_id" ON "memberships" ("user_id")[0m
+  [1m[35m (10.9ms)[0m  [1m[35mCREATE INDEX "index_memberships_on_group_id" ON "memberships" ("group_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230128085244"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUserIdToPosts (20230128131414)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "posts" ADD "user_id" integer[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230128131414"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateReplies (20230128145051)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE TABLE "replies" ("id" bigserial primary key, "feedback" text, "comment_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE INDEX "index_replies_on_comment_id" ON "replies" ("comment_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230128145051"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPostIdToReplies (20230128151310)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "replies" ADD "post_id" integer[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE INDEX "index_replies_on_post_id" ON "replies" ("post_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230128151310"]]
+  [1m[36mTRANSACTION (9.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddNameToUsers (20230129020319)
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "name" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230129020319"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddGroupIdToComments (20230129062251)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "comments" ADD "group_id" integer[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE INDEX "index_comments_on_group_id" ON "comments" ("group_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230129062251"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddGroupIdToReplies (20230129062350)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "replies" ADD "group_id" integer[0m
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE INDEX "index_replies_on_group_id" ON "replies" ("group_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230129062350"]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUserIdToComments (20230129070626)
+  [1m[36mTRANSACTION (6.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "comments" ADD "user_id" integer[0m
+  [1m[35m (9.3ms)[0m  [1m[35mCREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230129070626"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUserIdToReplies (20230129070638)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "replies" ADD "user_id" integer[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE INDEX "index_replies_on_user_id" ON "replies" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230129070638"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-01-29 07:57:26.755073"], ["updated_at", "2023-01-29 07:57:26.755073"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8183932473577995435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/posts/1" for ::1 at 2023-01-29 15:58:25 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:81:in `set_post'
+Completed 404 Not Found in 67ms (ActiveRecord: 6.1ms | Allocations: 7249)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=1):
+  
+app/controllers/posts_controller.rb:81:in `set_post'
+Started GET "/" for ::1 at 2023-01-29 15:58:28 +0800
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 5.4ms | Allocations: 751)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 42.6ms | Allocations: 4756)
+  Rendered layout layouts/application.html.erb (Duration: 230.7ms | Allocations: 65388)
+Completed 200 OK in 253ms (Views: 233.5ms | ActiveRecord: 0.0ms | Allocations: 72168)
+
+

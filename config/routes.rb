@@ -3,13 +3,14 @@ Rails.application.routes.draw do
   resources :memberships
   resources :comments
   resources :posts
-  
+
   resources :groups do
     collection do
       post :filter
     end
   end
 
+  # Devise Routes
   devise_scope :user do
     authenticated :user do
       root 'groups#index', as: :authenticated_root
@@ -19,8 +20,6 @@ Rails.application.routes.draw do
     end
   end
 
-
-  # sessions: 'users/sessions',
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
