@@ -15541,3 +15541,717 @@ Processing by GroupsController#index as HTML
 Completed 200 OK in 43ms (Views: 35.3ms | ActiveRecord: 7.4ms | Allocations: 24059)
 
 
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8183932473577995435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddNameToUsers (20230129020319)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.8ms)[0m  [1m[35mALTER TABLE "users" ADD "name" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230129020319"]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8183932473577995435)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/groups" for ::1 at 2023-01-29 10:20:11 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/groups/index.html.erb:23
+  [1m[36mGroup Load (0.6ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:32
+  [1m[36mMembership Load (0.5ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 1], ["user_id", 1]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.5ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 2], ["user_id", 1]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.5ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 5], ["user_id", 1]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (1.0ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 36], ["user_id", 1]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.5ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 37], ["user_id", 1]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (7.1ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 38], ["user_id", 1]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (1.1ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 39], ["user_id", 1]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.6ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 40], ["user_id", 1]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.6ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 3], ["user_id", 1]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.5ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 4], ["user_id", 1]]
+  ↳ app/views/groups/_group.html.erb:15
+  Rendered collection of groups/_group.html.erb [10 times] (Duration: 64.1ms | Allocations: 13558)
+  Rendered groups/index.html.erb within layouts/application (Duration: 147.5ms | Allocations: 35661)
+  Rendered layout layouts/application.html.erb (Duration: 333.5ms | Allocations: 106070)
+Completed 200 OK in 414ms (Views: 312.6ms | ActiveRecord: 26.7ms | Allocations: 111269)
+
+
+Started GET "/users/sign_out" for ::1 at 2023-01-29 10:20:13 +0800
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 0.5ms | Allocations: 4997)
+
+
+Started GET "/" for ::1 at 2023-01-29 10:20:13 +0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 10.2ms | Allocations: 761)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 39.5ms | Allocations: 3162)
+  Rendered layout layouts/application.html.erb (Duration: 47.9ms | Allocations: 10519)
+Completed 200 OK in 54ms (Views: 51.1ms | ActiveRecord: 0.0ms | Allocations: 11770)
+
+
+Started GET "/users/sign_up" for ::1 at 2023-01-29 10:20:15 +0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 24.2ms | Allocations: 1732)
+  Rendered layout layouts/application.html.erb (Duration: 24.7ms | Allocations: 1831)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.0ms | Allocations: 4794)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <div class="flex flex-col mx-auto justify-center gap-5">
+
+  <h1 class="mx-auto text-2xl">
+    Sign Up
+  </h1>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+     <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :attribute :name, autofocus: true, autocomplete: "name" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Sign up", data: { turbo: false },class: "text-center rounded-lg mx-auto w-full py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+
+</div>
+
+
+
+
+
+):
+1:    <div class="flex flex-col mx-auto justify-center gap-5">
+2:    
+3:      <h1 class="mx-auto text-2xl">
+4:        Sign Up
+5:      </h1>
+6:    
+7:      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+8:        <%= render "devise/shared/error_messages", resource: resource %>
+9:    
+10:         <div class="field">
+11:          <%= f.label :name %><br />
+12:          <%= f.text_field :attribute :name, autofocus: true, autocomplete: "name" %>
+13:        </div>
+14:    
+15:        <div class="field">
+16:          <%= f.label :email %><br />
+17:          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+18:        </div>
+19:    
+20:        <div class="field">
+21:          <%= f.label :password %>
+22:          <% if @minimum_password_length %>
+23:          <em>(<%= @minimum_password_length %> characters minimum)</em>
+24:          <% end %><br />
+25:          <%= f.password_field :password, autocomplete: "new-password" %>
+26:        </div>
+27:    
+28:        <div class="field">
+29:          <%= f.label :password_confirmation %><br />
+30:          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+31:        </div>
+32:    
+33:        <div class="actions">
+34:          <%= f.submit "Sign up", data: { turbo: false },class: "text-center rounded-lg mx-auto w-full py-3 px-5 bg-blue-600 text-white block font-medium" %>
+35:        </div>
+36:      <% end %>
+37:    
+38:      <%= render "devise/shared/links" %>
+39:    
+40:    </div>
+  
+app/views/devise/registrations/new.html.erb:12: syntax error, unexpected ':', expecting ')'
+app/views/devise/registrations/new.html.erb:12: Can't assign to true
+app/views/devise/registrations/new.html.erb:12: syntax error, unexpected ':', expecting ')'
+app/views/devise/registrations/new.html.erb:12: Can't assign to true
+app/views/devise/registrations/new.html.erb:12: syntax error, unexpected ':', expecting ')'
+app/views/devise/registrations/new.html.erb:12: Can't assign to true
+app/views/devise/registrations/new.html.erb:12: syntax error, unexpected ':', expecting ')'
+app/views/devise/registrations/new.html.erb:12: Can't assign to true
+app/views/devise/registrations/new.html.erb:12: syntax error, unexpected ':', expecting ')'
+app/views/devise/registrations/new.html.erb:12: Can't assign to true
+app/views/devise/registrations/new.html.erb:12: syntax error, unexpected ':', expecting ')'
+app/views/devise/registrations/new.html.erb:12: Can't assign to true
+Started GET "/users/sign_up" for ::1 at 2023-01-29 10:20:56 +0800
+  
+ArgumentError (Invalid route name, already in use: 'new_user_session' 
+You may have defined two routes with the same name using the `:as` option, or you may be overriding a route already defined by a resource with the same naming. For the latter, you can restrict the routes created with `resources` as explained here: 
+https://guides.rubyonrails.org/routing.html#restricting-the-routes-created):
+  
+config/routes.rb:25:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/users/sign_up" for ::1 at 2023-01-29 10:21:55 +0800
+  
+ArgumentError (Invalid route name, already in use: 'new_user_session' 
+You may have defined two routes with the same name using the `:as` option, or you may be overriding a route already defined by a resource with the same naming. For the latter, you can restrict the routes created with `resources` as explained here: 
+https://guides.rubyonrails.org/routing.html#restricting-the-routes-created):
+  
+config/routes.rb:20:in `block (3 levels) in <main>'
+config/routes.rb:18:in `block (2 levels) in <main>'
+config/routes.rb:14:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/users/sign_up" for ::1 at 2023-01-29 10:22:11 +0800
+  
+ArgumentError (Invalid route name, already in use: 'new_user_session' 
+You may have defined two routes with the same name using the `:as` option, or you may be overriding a route already defined by a resource with the same naming. For the latter, you can restrict the routes created with `resources` as explained here: 
+https://guides.rubyonrails.org/routing.html#restricting-the-routes-created):
+  
+config/routes.rb:25:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/" for ::1 at 2023-01-29 10:22:18 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/"):
+  
+Started GET "/" for ::1 at 2023-01-29 10:22:33 +0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 184)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1279)
+  Rendered layout layouts/application.html.erb (Duration: 22.3ms | Allocations: 27073)
+Completed 200 OK in 38ms (Views: 24.1ms | ActiveRecord: 2.9ms | Allocations: 30731)
+
+
+Started GET "/groups" for ::1 at 2023-01-29 10:22:36 +0800
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  Rendered groups/index.html.erb within layouts/application (Duration: 10.9ms | Allocations: 7575)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 7673)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms | Allocations: 9908)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass
+
+        '.freeze;@output_buffer.append=( render(ModalComponent.new('Create', current_user.id, Group.new() )) );@output_buffer.safe_append='
+                                                                                         ^^^):
+    20: 
+    21:       <%# Modal %>
+    22:       <div data-modal-target="modalArea" hidden>
+    23:         <%= render(ModalComponent.new('Create', current_user.id, Group.new() )) %>
+    24:       </div>
+    25: 
+    26:       <%# link_to 'New group', new_group_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  
+app/views/groups/index.html.erb:23
+Started GET "/" for ::1 at 2023-01-29 10:22:42 +0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 154)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1122)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 8491)
+Completed 200 OK in 11ms (Views: 10.7ms | ActiveRecord: 0.0ms | Allocations: 8972)
+
+
+Started GET "/users/sign_up" for ::1 at 2023-01-29 10:22:45 +0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1386)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 1475)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 4252)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <div class="flex flex-col mx-auto justify-center gap-5">
+
+  <h1 class="mx-auto text-2xl">
+    Sign Up
+  </h1>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+     <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :attribute :name, autofocus: true, autocomplete: "name" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Sign up", data: { turbo: false },class: "text-center rounded-lg mx-auto w-full py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+
+</div>
+
+
+
+
+
+):
+1:    <div class="flex flex-col mx-auto justify-center gap-5">
+2:    
+3:      <h1 class="mx-auto text-2xl">
+4:        Sign Up
+5:      </h1>
+6:    
+7:      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+8:        <%= render "devise/shared/error_messages", resource: resource %>
+9:    
+10:         <div class="field">
+11:          <%= f.label :name %><br />
+12:          <%= f.text_field :attribute :name, autofocus: true, autocomplete: "name" %>
+13:        </div>
+14:    
+15:        <div class="field">
+16:          <%= f.label :email %><br />
+17:          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+18:        </div>
+19:    
+20:        <div class="field">
+21:          <%= f.label :password %>
+22:          <% if @minimum_password_length %>
+23:          <em>(<%= @minimum_password_length %> characters minimum)</em>
+24:          <% end %><br />
+25:          <%= f.password_field :password, autocomplete: "new-password" %>
+26:        </div>
+27:    
+28:        <div class="field">
+29:          <%= f.label :password_confirmation %><br />
+30:          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+31:        </div>
+32:    
+33:        <div class="actions">
+34:          <%= f.submit "Sign up", data: { turbo: false },class: "text-center rounded-lg mx-auto w-full py-3 px-5 bg-blue-600 text-white block font-medium" %>
+35:        </div>
+36:      <% end %>
+37:    
+38:      <%= render "devise/shared/links" %>
+39:    
+40:    </div>
+  
+app/views/devise/registrations/new.html.erb:12: syntax error, unexpected ':', expecting ')'
+app/views/devise/registrations/new.html.erb:12: Can't assign to true
+app/views/devise/registrations/new.html.erb:12: syntax error, unexpected ':', expecting ')'
+app/views/devise/registrations/new.html.erb:12: Can't assign to true
+app/views/devise/registrations/new.html.erb:12: syntax error, unexpected ':', expecting ')'
+app/views/devise/registrations/new.html.erb:12: Can't assign to true
+app/views/devise/registrations/new.html.erb:12: syntax error, unexpected ':', expecting ')'
+app/views/devise/registrations/new.html.erb:12: Can't assign to true
+app/views/devise/registrations/new.html.erb:12: syntax error, unexpected ':', expecting ')'
+app/views/devise/registrations/new.html.erb:12: Can't assign to true
+app/views/devise/registrations/new.html.erb:12: syntax error, unexpected ':', expecting ')'
+app/views/devise/registrations/new.html.erb:12: Can't assign to true
+Started GET "/users/sign_up" for ::1 at 2023-01-29 10:23:03 +0800
+  
+ArgumentError (Invalid route name, already in use: 'new_user_session' 
+You may have defined two routes with the same name using the `:as` option, or you may be overriding a route already defined by a resource with the same naming. For the latter, you can restrict the routes created with `resources` as explained here: 
+https://guides.rubyonrails.org/routing.html#restricting-the-routes-created):
+  
+config/routes.rb:24:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/users/sign_up" for ::1 at 2023-01-29 10:23:31 +0800
+Processing by Users::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 1386)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | Allocations: 1475)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 2.8ms | Allocations: 7170)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <div class="flex flex-col mx-auto justify-center gap-5">
+
+  <h1 class="mx-auto text-2xl">
+    Sign Up
+  </h1>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+     <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :attribute :name, autofocus: true, autocomplete: "name" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Sign up", data: { turbo: false },class: "text-center rounded-lg mx-auto w-full py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+
+</div>
+
+
+
+
+
+):
+1:    <div class="flex flex-col mx-auto justify-center gap-5">
+2:    
+3:      <h1 class="mx-auto text-2xl">
+4:        Sign Up
+5:      </h1>
+6:    
+7:      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+8:        <%= render "devise/shared/error_messages", resource: resource %>
+9:    
+10:         <div class="field">
+11:          <%= f.label :name %><br />
+12:          <%= f.text_field :attribute :name, autofocus: true, autocomplete: "name" %>
+13:        </div>
+14:    
+15:        <div class="field">
+16:          <%= f.label :email %><br />
+17:          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+18:        </div>
+19:    
+20:        <div class="field">
+21:          <%= f.label :password %>
+22:          <% if @minimum_password_length %>
+23:          <em>(<%= @minimum_password_length %> characters minimum)</em>
+24:          <% end %><br />
+25:          <%= f.password_field :password, autocomplete: "new-password" %>
+26:        </div>
+27:    
+28:        <div class="field">
+29:          <%= f.label :password_confirmation %><br />
+30:          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+31:        </div>
+32:    
+33:        <div class="actions">
+34:          <%= f.submit "Sign up", data: { turbo: false },class: "text-center rounded-lg mx-auto w-full py-3 px-5 bg-blue-600 text-white block font-medium" %>
+35:        </div>
+36:      <% end %>
+37:    
+38:      <%= render "devise/shared/links" %>
+39:    
+40:    </div>
+  
+app/views/devise/registrations/new.html.erb:12: syntax error, unexpected ':', expecting ')'
+app/views/devise/registrations/new.html.erb:12: Can't assign to true
+app/views/devise/registrations/new.html.erb:12: syntax error, unexpected ':', expecting ')'
+app/views/devise/registrations/new.html.erb:12: Can't assign to true
+app/views/devise/registrations/new.html.erb:12: syntax error, unexpected ':', expecting ')'
+app/views/devise/registrations/new.html.erb:12: Can't assign to true
+app/views/devise/registrations/new.html.erb:12: syntax error, unexpected ':', expecting ')'
+app/views/devise/registrations/new.html.erb:12: Can't assign to true
+app/views/devise/registrations/new.html.erb:12: syntax error, unexpected ':', expecting ')'
+app/views/devise/registrations/new.html.erb:12: Can't assign to true
+app/views/devise/registrations/new.html.erb:12: syntax error, unexpected ':', expecting ')'
+app/views/devise/registrations/new.html.erb:12: Can't assign to true
+Started GET "/" for ::1 at 2023-01-29 10:24:14 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.8ms | Allocations: 758)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 13.1ms | Allocations: 4994)
+  Rendered layout layouts/application.html.erb (Duration: 121.8ms | Allocations: 63623)
+Completed 200 OK in 151ms (Views: 128.4ms | ActiveRecord: 3.8ms | Allocations: 73823)
+
+
+Started GET "/users/sign_up" for ::1 at 2023-01-29 10:24:17 +0800
+Processing by Users::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1731)
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 1830)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 5083)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <div class="flex flex-col mx-auto justify-center gap-5">
+
+  <h1 class="mx-auto text-2xl">
+    Sign Up
+  </h1>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+     <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :attribute :name, autofocus: true, autocomplete: "name" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Sign up", data: { turbo: false },class: "text-center rounded-lg mx-auto w-full py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+
+</div>
+
+
+
+
+
+):
+1:    <div class="flex flex-col mx-auto justify-center gap-5">
+2:    
+3:      <h1 class="mx-auto text-2xl">
+4:        Sign Up
+5:      </h1>
+6:    
+7:      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+8:        <%= render "devise/shared/error_messages", resource: resource %>
+9:    
+10:         <div class="field">
+11:          <%= f.label :name %><br />
+12:          <%= f.text_field :attribute :name, autofocus: true, autocomplete: "name" %>
+13:        </div>
+14:    
+15:        <div class="field">
+16:          <%= f.label :email %><br />
+17:          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+18:        </div>
+19:    
+20:        <div class="field">
+21:          <%= f.label :password %>
+22:          <% if @minimum_password_length %>
+23:          <em>(<%= @minimum_password_length %> characters minimum)</em>
+24:          <% end %><br />
+25:          <%= f.password_field :password, autocomplete: "new-password" %>
+26:        </div>
+27:    
+28:        <div class="field">
+29:          <%= f.label :password_confirmation %><br />
+30:          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+31:        </div>
+32:    
+33:        <div class="actions">
+34:          <%= f.submit "Sign up", data: { turbo: false },class: "text-center rounded-lg mx-auto w-full py-3 px-5 bg-blue-600 text-white block font-medium" %>
+35:        </div>
+36:      <% end %>
+37:    
+38:      <%= render "devise/shared/links" %>
+39:    
+40:    </div>
+  
+app/views/devise/registrations/new.html.erb:12: syntax error, unexpected ':', expecting ')'
+app/views/devise/registrations/new.html.erb:12: Can't assign to true
+app/views/devise/registrations/new.html.erb:12: syntax error, unexpected ':', expecting ')'
+app/views/devise/registrations/new.html.erb:12: Can't assign to true
+app/views/devise/registrations/new.html.erb:12: syntax error, unexpected ':', expecting ')'
+app/views/devise/registrations/new.html.erb:12: Can't assign to true
+app/views/devise/registrations/new.html.erb:12: syntax error, unexpected ':', expecting ')'
+app/views/devise/registrations/new.html.erb:12: Can't assign to true
+app/views/devise/registrations/new.html.erb:12: syntax error, unexpected ':', expecting ')'
+app/views/devise/registrations/new.html.erb:12: Can't assign to true
+app/views/devise/registrations/new.html.erb:12: syntax error, unexpected ':', expecting ')'
+app/views/devise/registrations/new.html.erb:12: Can't assign to true
+Started GET "/users/sign_up" for ::1 at 2023-01-29 10:24:55 +0800
+Processing by Users::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.3ms | Allocations: 216)
+  Rendered devise/shared/_links.html.erb (Duration: 1.4ms | Allocations: 571)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 10.7ms | Allocations: 3156)
+  Rendered layout layouts/application.html.erb (Duration: 22.8ms | Allocations: 11056)
+Completed 200 OK in 36ms (Views: 33.4ms | ActiveRecord: 0.0ms | Allocations: 14352)
+
+
+Started POST "/users" for ::1 at 2023-01-29 10:25:05 +0800
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"Malcom", "email"=>"c@c", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "c@c"], ["LIMIT", 1]]
+  [1m[36mUser Create (5.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "c@c"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2023-01-29 02:25:06.073497"], ["updated_at", "2023-01-29 02:25:06.073497"], ["name", "Malcom"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 279ms (ActiveRecord: 8.4ms | Allocations: 12340)
+
+
+Started GET "/" for ::1 at 2023-01-29 10:25:06 +0800
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.6ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:32
+  [1m[36mMembership Load (0.5ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 1], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 2], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 5], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 36], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.5ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 37], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.5ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 38], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 39], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.4ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 40], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.6ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 3], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (1.7ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 4], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  Rendered collection of groups/_group.html.erb [10 times] (Duration: 44.4ms | Allocations: 15646)
+  Rendered groups/index.html.erb within layouts/application (Duration: 70.0ms | Allocations: 24949)
+  Rendered layout layouts/application.html.erb (Duration: 80.3ms | Allocations: 33149)
+Completed 200 OK in 88ms (Views: 70.3ms | ActiveRecord: 11.6ms | Allocations: 35622)
+
+
+Started GET "/users/sign_out" for ::1 at 2023-01-29 10:25:12 +0800
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 0.4ms | Allocations: 4404)
+
+
+Started GET "/" for ::1 at 2023-01-29 10:25:13 +0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 166)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1580)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 9140)
+Completed 200 OK in 17ms (Views: 16.4ms | ActiveRecord: 0.0ms | Allocations: 10027)
+
+
+Started POST "/users/sign_in" for ::1 at 2023-01-29 10:25:18 +0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"c@c", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "c@c"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 251ms (ActiveRecord: 0.3ms | Allocations: 4731)
+
+
+Started GET "/" for ::1 at 2023-01-29 10:25:19 +0800
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:32
+  [1m[36mMembership Load (0.3ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 1], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.3ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 2], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.3ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 5], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.8ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 36], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.3ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 37], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.3ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 38], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.3ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 39], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.3ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 40], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.3ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 3], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  [1m[36mMembership Load (0.8ms)[0m  [1m[34mSELECT "memberships".* FROM "memberships" WHERE "memberships"."group_id" = $1 AND "memberships"."user_id" = $2[0m  [["group_id", 4], ["user_id", 3]]
+  ↳ app/views/groups/_group.html.erb:15
+  Rendered collection of groups/_group.html.erb [10 times] (Duration: 21.3ms | Allocations: 11208)
+  Rendered groups/index.html.erb within layouts/application (Duration: 29.0ms | Allocations: 15842)
+  Rendered layout layouts/application.html.erb (Duration: 37.8ms | Allocations: 23593)
+Completed 200 OK in 39ms (Views: 34.0ms | ActiveRecord: 4.5ms | Allocations: 23896)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (2.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "name" = $2 WHERE "users"."id" = $3[0m  [["updated_at", "2023-01-29 02:26:05.212769"], ["name", "JC"], ["id", 1]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "name" = $2 WHERE "users"."id" = $3[0m  [["updated_at", "2023-01-29 02:26:28.447223"], ["name", "bbq"], ["id", 2]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m

@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   resources :replies
   resources :memberships
-  devise_for :users
   resources :comments
   resources :posts
   
@@ -20,4 +19,9 @@ Rails.application.routes.draw do
     end
   end
 
+
+  # sessions: 'users/sessions',
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
 end
