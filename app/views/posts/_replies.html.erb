@@ -1,32 +1,29 @@
 <% @replies.where(comment_id: comment_id).each do |reply| %>
-    <br/>
-    <%= reply.feedback %>
-    <br/>
-    <div>
+    <br/> <%= reply.feedback %> <br/>
+    <div class="flex gap-3 text-slate-500"">
 
-
+      <%# Logic for the author %>
       <% if current_user.id == reply.user_id %>
-                You
-            <% else %>
-                <%= User.where(id: reply.user_id).first.name %>
-            <% end %>
+        You
+      <% else %>
+        <%= User.where(id: reply.user_id).first.name %>
+      <% end %>
+      replied <%= time_ago_in_words(Reply.where(id: reply.id).last.updated_at) %> ago • 
 
-          replied 
-            <%= time_ago_in_words(Reply.where(id: reply.id).last.updated_at) %>
-          
-          ago • 
+      <%# Delete Link %>
+      <div class="flex gap-3">
+        <span> </span>
+        <%= form_with(model: reply, method: :delete) do |form| %>
+          <%= form.submit "Delete" %>
+        <% end %>
+        <span> • </span>
+      </div>
 
+      <%# Reply toggle %>
+      <div class="flex gap-2">
+        <span></span>
+        <span data-action="click->replies#toggle" class="replyToggle"> Reply </span>
+      </div>
 
-        
-        
-            <span>        
-                <%= form_with(model: reply, method: :delete) do |form| %>
-                    <%= form.submit "Delete" %>
-                <% end %>
-            </span>
-        
-        
-         • <span data-action="click->replies#toggle"> Reply </span>
     </div>
-
 <% end %>

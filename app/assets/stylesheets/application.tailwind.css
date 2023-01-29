@@ -12,7 +12,7 @@
 
 */
 
-a:hover, input:hover {
+a:hover, input:hover, .replyToggle:hover {
   color: rgb(30, 30, 160);
   cursor: pointer;
 }

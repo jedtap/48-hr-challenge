@@ -1,58 +1,59 @@
-
 <% @comments.each do |comment| %>
+  <br/><br/>
   <div data-controller="replies">
-    <div class="border-2 border-red-300">
+    <%= comment.remark %>
+    <div class="flex text-slate-500">
 
-    
-      <br/>
-      <%= comment.remark %>
-      <br/>
-      <div>
+      <%# Logic for the author %>
+      <% if current_user.id == comment.user_id %>
+          You
+      <% else %>
+          <%= User.where(id: comment.user_id).first.name %>
+      <% end %>
+      commented <%= time_ago_in_words(Comment.where(id: comment.id).last.updated_at) %> ago   • 
 
-            <% if current_user.id == comment.user_id %>
-                You
-            <% else %>
-                <%= User.where(id: comment.user_id).first.name %>
-            <% end %>
-
-          commented 
-            <%= time_ago_in_words(Comment.where(id: comment.id).last.updated_at) %>
-          
-          ago • 
-          
-          <%= form_with(model: comment, method: :delete) do |form| %>
-            <%= form.submit "Delete" %>
-          <% end %>
-          
-          • <span data-action="click->replies#toggle"> Reply </span>
+      <%# Delete button %>
+      <div class="flex gap-3">
+        <span> </span>
+        <%= form_with(model: comment, method: :delete) do |form| %>
+          <%= form.submit "Delete" %>
+        <% end %>
+        <span> • </span>
       </div>
-      <br/>
-      <br/>
 
-      <div class="pl-10">
-        <%= render "replies", comment_id: comment.id %>
-
-        
-        <div data-replies-target="replyBox" hidden >
-          <%= form_with(model: Reply.new()) do |form| %>
-
-            <div class="my-5">
-              <%= form.text_area :feedback, placeholder: "Write your reply...", class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-            </div>
-
-              <%= form.number_field :comment_id, value: comment.id, type: :hidden %>
-              <%= form.number_field :post_id, value: @post.id, type: :hidden %>
-              <%= form.number_field :group_id, value: @post.group_id, type: :hidden %>
-              <%= form.number_field :user_id, value: current_user.id, type: :hidden %>
-
-            <div class="flex justify-end">
-              <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
-            </div>
-          <% end %>
-        </div>
-
+      <%# Reply toggle %>
+      <div class="flex gap-3">
+        <span> </span>
+        <span class="replyToggle" data-action="click->replies#toggle"> Reply </span>
       </div>
     </div>
+
+    <%# Indented content containing the replies %>
+    <div class="pl-10">
+      <%= render "replies", comment_id: comment.id %>
+      
+      <div data-replies-target="replyBox" hidden >
+        <%= form_with(model: Reply.new()) do |form| %>
+
+          <div class="my-5">
+            <%= form.text_area :feedback, placeholder: "Write your reply...", class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+          </div>
+
+            <%= form.number_field :comment_id, value: comment.id, type: :hidden %>
+            <%= form.number_field :post_id, value: @post.id, type: :hidden %>
+            <%= form.number_field :group_id, value: @post.group_id, type: :hidden %>
+            <%= form.number_field :user_id, value: current_user.id, type: :hidden %>
+
+          <div class="flex justify-end">
+            <%= form.submit class: "rounded-lg py-3 px-5 bg-green-500 text-white inline-block font-medium cursor-pointer" %>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+
+
+
   </div>
 <% end %>
 
