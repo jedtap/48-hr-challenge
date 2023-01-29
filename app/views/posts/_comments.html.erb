@@ -1,31 +1,40 @@
+
 <% @comments.each do |comment| %>
-  <div class="border-2 border-red-300">
+  <div data-controller="replies">
+    <div class="border-2 border-red-300">
 
-  
-    <br/>
-    <%= comment.remark %>
-    <br/>
-    <div>
-        Name commented 3 days ago • Reply
-    </div>
-    <br/>
-    <br/>
+    
+      <br/>
+      <%= comment.remark %>
+      <br/>
+      <div>
+          Name commented 3 days ago • <span data-action="click->replies#toggle"> Reply </span>
+      </div>
+      <br/>
+      <br/>
 
-    <div class="pl-10">
-      <%= render "replies", comment_id: comment.id %>
-      <%= form_with(model: Reply.new()) do |form| %>
+      <div class="pl-10">
+        <%= render "replies", comment_id: comment.id %>
 
-        <div class="my-5">
-          <%= form.text_area :feedback, placeholder: "Write your reply...", class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+        
+        <div data-replies-target="replyBox" hidden >
+          <%= form_with(model: Reply.new()) do |form| %>
+
+            <div class="my-5">
+              <%= form.text_area :feedback, placeholder: "Write your reply...", class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+            </div>
+
+              <%= form.number_field :comment_id, value: comment.id, type: :hidden %>
+              <%= form.number_field :post_id, value: @post.id, type: :hidden %>
+
+            <div class="flex justify-end">
+              <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+            </div>
+          <% end %>
         </div>
 
-          <%= form.number_field :comment_id, value: comment.id, type: :hidden %>
-          <%= form.number_field :post_id, value: @post.id, type: :hidden %>
-
-        <div class="flex justify-end">
-          <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
-        </div>
-      <% end %>
+      </div>
     </div>
   </div>
 <% end %>
+
