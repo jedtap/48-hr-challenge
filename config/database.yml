@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
   database: simplero_take_home_test_rails_production
   username: simplero_take_home_test_rails
   password: <%= ENV["SIMPLERO_TAKE_HOME_TEST_RAILS_DATABASE_PASSWORD"] %>
