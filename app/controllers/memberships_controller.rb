@@ -52,7 +52,7 @@ class MembershipsController < ApplicationController
     @membership.destroy
 
     respond_to do |format|
-      format.html { redirect_to memberships_url, notice: "Membership was successfully destroyed." }
+      format.html { redirect_to "/", notice: "Membership was cancelled." }
       format.json { head :no_content }
     end
   end
