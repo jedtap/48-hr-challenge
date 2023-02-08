@@ -1,11 +1,22 @@
-# README
+# 48 hour challenge!
 
-This is a normal rails 7 app created with `rails new` with postgresql as the database and tailwind configured.
+Last January 2022, a potential employer sent me an invitation to take on their 48-hour challenge. The senior engineer informed me that I'll be creating a web application using different technologies listed below. After a few emails, I said yes to the challenge. 
 
-As part of the test, you might need to configure and install additional things like view compononents
+I was tasked to create a Facebook group application. Think of Facebook, but just the group functionality - people can post, comment, and reply to those comments. After coding from January 28 to 29, I am grateful on how the deployment turned out!
 
-# Development
+Check out the live application here! 👉 https://rails-production-9264.up.railway.app/
 
-* Standard rails 7 workflow.
-* Make sure you create database (rails db:create).
-* Run server with `bin/dev`
+## Required Technologies and Libraries used
+
+- Rails 7
+- Stimulus
+- TailwindCSS
+- ViewComponent
+- FontAwesome
+- Deploying a live version
+
+## What makes this project unique?
+
+- Clean and minimalistic design!
+- Built within 48 hours from January 28 to 29, 2023 by a part-timer!
+- Has a photo of the sketch located inside the `sketch` folder
